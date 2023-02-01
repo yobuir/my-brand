@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>My blogs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./assets/style.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -77,78 +76,37 @@
                 <span></span>
                 <span></span>
             </a>
-            <a href="javascript:void(0);" class="close" id="close"">
+            <a href="javascript:void(0);" class="close" id="close">
                 <svg xmlns=" http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path
                     d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
                 </svg>
             </a>
         </nav>
-    </div>
-    <section class="contact" id="Contact">
-        <div class="header">
-            <h5>Blog</h5>
-            <h1>Star Ratings With Very Little CSS</h1>
-        </div>
-        <div class="contact-container">
-            <pre style="color: antiquewhite; font-size: 16px;">
-                Star ratings are one of those classic UX patterns that everyone has tinkered with at one time or another. I had an idea
-                get the UX part of it done with very little code and no JavaScript.
-                
-                
-                
-                The markup uses the unicode entity for a star (☆) right in it. If you have a UTF-8 charset that should be no big deal.
-                Alternatively you could use &#9734; (Calculator for that kind of thing). You could use as many stars as you like:
-                
-                <div class="rating">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        <section class="contact" id="Contact">
+            <div class="header">
+                <h5>Blog</h5>
+                <h1>Add new Blog</h1>
+            </div>
+            <div class="contact-container"> 
+                <div class="contact-inner-right">
+                    <form class="form" id="blogForm">
+                        <div id="error" style="color:red ;margin: 10px;"></div>
+                        <div id="success" style="background-color: green;color: white;margin-bottom: 10px;"></div>
+                        <div class="inputs">
+                            <input type="text" id="blog_title" placeholder="title">
+                            <input type="date" id="blog_date" placeholder="blog_date">
+                            <input type="url" id="blog_image" placeholder="image url"> 
+        
+                            <textarea id="blog_body" placeholder="Body"></textarea>
+                        </div>
+                        <button onclick="addBlog()">Submit</button>
+                    </form>
                 </div>
-                Now we need to flop out that “hollow” star with a “solid” star on hover (Gallery for finding those sorts of characters).
-                Easy, just drop a pseudo element of a solid star (★) over it on :hover
-                
-                .rating > span:hover:before {
-                content: "\2605";
-                position: absolute;
-                }
-                Just by virtue of being it being absolutely positioned, the top: 0; left: 0; are implied (in modern browsers, anyway).
-                So the solid star just sits directly on top of the hollow star. You could even change the color or size if you wished.
-                
-                But what we have so far only works on individual stars. The UX pattern demands that all the stars be filled in. Fo
-                instance, if we hover over the 4th star, the 4th star becomes solid, but also the 1st, 2nd, and 3rd.
-                
-                Through CSS, there is no way to select a preceding child element. However, there is a way to select succeeding child
-                elements, through the adjacent or general sibling combinators. If we literally reverse the order of the characters, then
-                we can make use of the general sibling combinator to select all the stars that appear before the hovered star visually,
-                but after the hovered star in the HTML.
-                
-                .rating {
-                unicode-bidi: bidi-override;
-                direction: rtl;
-                }
-                .rating > span:hover:before,
-                .rating > span:hover ~ span:before {
-                content: "\2605";
-                position: absolute;
-                }
-                That’s it! The whole star ratings UX pattern with very little code. Here’s the entire bit of CSS to make it work:
-                
-                .rating {
-                unicode-bidi: bidi-override;
-                direction: rtl;
-                }
-                .rating > span {
-                display: inline-block;
-                position: relative;
-                width: 1.1em;
-                }
-                .rating > span:hover:before,
-                .rating > span:hover ~ span:before {
-                content: "\2605";
-                position: absolute;
-                }
-            </pre>
+            </div>
+        </section>
         </div>
-    </section>
-    <script src="/assets/js.js"></script>
+        <script src="/assets/js.js"></script>
     </body>
 </html>
+    

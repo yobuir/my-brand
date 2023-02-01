@@ -15,16 +15,35 @@
             
             <div class="NavItems_icons" id="NavItems_icons"> 
                 <div class="Nav_list">
-                    <ul class="Nav_items">
-                        <li><a href="/" class="active">Home</a></li>
-                        <li><a href="#About" >About</a></li>
-                        <li><a href="#services">Skills</a></li>
-                        <li><a href="#services">services</a></li>
-                        <li><a href="#Portofolio">Portofolio</a></li> 
-                        <li><a href="#Blog">Blog</a></li>
-                        <li><a href="#Contact">Contact</a></li>
-                        <li><a href="">Login</a></li>
+                    <div class="header-phone">
+                        <h2>Ir Yobu</h2>
+                        <div href="javascript:void(0);" id="close"><i class="bi bi-x-lg"></i></div>
+                    </div> 
+
+                    <!-- desktop -->
+                    <ul class="Nav_items " id="desktop">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="index.html#About">About</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="index.html#services">services</a></li>
+                        <li><a href="index.html#Portofolio">Portofolio</a></li> 
+                        <li><a href="/UI/web/blog.html">Blog</a></li>
+                        <li><a href="index.html#Contact">Contact</a></li>
+                        <li><a href="/UI/dashboard/login.html">Login</a></li>
                     </ul>
+
+                    <!-- mobile -->
+                    <ul class="Nav_items " id="mobile">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li  onclick="navClick()"><a href="index.html#About">About</a></li>
+                        <li  onclick="navClick()"><a href="index.html#skills">Skills</a></li>
+                        <li  onclick="navClick()"><a href="index.html#services">services</a></li>
+                        <li  onclick="navClick()"><a href="index.html#Portofolio">Portofolio</a></li>
+                        <li  onclick="navClick()"><a href="/UI/web/blog.html">Blog</a></li>
+                        <li  onclick="navClick()"><a href="index.html#Contact">Contact</a></li>
+                        <li  onclick="navClick()"><a href="/UI/dashboard/login.html">Login</a></li>
+                    </ul>
+
                 </div> 
                 <div class="Nav_items_icons">
                    
@@ -176,7 +195,7 @@
                     </div>
                 </div>
             </section> 
-            <section class="skills">
+            <section class="skills" id="skills">
                 <div class="header">
                     <h5>Skills</h5>
                     <h1>I Work Hard to Improve My Skills Regularly</h1>
@@ -268,7 +287,7 @@
                 </div> 
             </section>
 
-            <!-- <section class="services" id="services">   
+           <section class="services" id="services">   
                 <div class="header">
                     <h5>Services</h5>
                     <h1>What I Do for My Clients</h1>
@@ -277,12 +296,11 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <svg class="svg-icon" viewBox="0 0 20 20">
-                                <path
-                                    d="M17.237,3.056H2.93c-0.694,0-1.263,0.568-1.263,1.263v8.837c0,0.694,0.568,1.263,1.263,1.263h4.629v0.879c-0.015,0.086-0.183,0.306-0.273,0.423c-0.223,0.293-0.455,0.592-0.293,0.92c0.07,0.139,0.226,0.303,0.577,0.303h4.819c0.208,0,0.696,0,0.862-0.379c0.162-0.37-0.124-0.682-0.374-0.955c-0.089-0.097-0.231-0.252-0.268-0.328v-0.862h4.629c0.694,0,1.263-0.568,1.263-1.263V4.319C18.5,3.625,17.932,3.056,17.237,3.056 M8.053,16.102C8.232,15.862,8.4,15.597,8.4,15.309v-0.89h3.366v0.89c0,0.303,0.211,0.562,0.419,0.793H8.053z M17.658,13.156c0,0.228-0.193,0.421-0.421,0.421H2.93c-0.228,0-0.421-0.193-0.421-0.421v-1.263h15.149V13.156z M17.658,11.052H2.509V4.319c0-0.228,0.193-0.421,0.421-0.421h14.308c0.228,0,0.421,0.193,0.421,0.421V11.052z">
-                                </path>
-                            </svg>
-                            <h4>Web Development</h4>
+                            <div class="card-header">
+                                <img src="/assets/icons/Vector.png">
+                                <h4>Web Development</h4>
+                            </div>
+                           
                             <p>
                                 Our web development services are geared towards small to large-scale projects 
                             </p>
@@ -291,346 +309,99 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <svg class="svg-icon" viewBox="0 0 20 20">
-                                <path
-                                    d="M10,6.536c-2.263,0-4.099,1.836-4.099,4.098S7.737,14.732,10,14.732s4.099-1.836,4.099-4.098S12.263,6.536,10,6.536M10,13.871c-1.784,0-3.235-1.453-3.235-3.237S8.216,7.399,10,7.399c1.784,0,3.235,1.452,3.235,3.235S11.784,13.871,10,13.871M17.118,5.672l-3.237,0.014L12.52,3.697c-0.082-0.105-0.209-0.168-0.343-0.168H7.824c-0.134,0-0.261,0.062-0.343,0.168L6.12,5.686H2.882c-0.951,0-1.726,0.748-1.726,1.699v7.362c0,0.951,0.774,1.725,1.726,1.725h14.236c0.951,0,1.726-0.773,1.726-1.725V7.195C18.844,6.244,18.069,5.672,17.118,5.672 M17.98,14.746c0,0.477-0.386,0.861-0.862,0.861H2.882c-0.477,0-0.863-0.385-0.863-0.861V7.384c0-0.477,0.386-0.85,0.863-0.85l3.451,0.014c0.134,0,0.261-0.062,0.343-0.168l1.361-1.989h3.926l1.361,1.989c0.082,0.105,0.209,0.168,0.343,0.168l3.451-0.014c0.477,0,0.862,0.184,0.862,0.661V14.746z">
-                                </path>
-                            </svg>
-                            <h4>Photography</h4>
+                            <div class="card-header">
+                            <img src="/assets/icons/Vector (1).png">
+                                <h4>Photography</h4> 
+                            </div>
+                           
                             <p>
-                                 Videograhy, Drone Services,  Graphics, Design
-                                graphics and Other related Services.
+                                We do Videography, Drone Services, and Other related Services.
                             </p>
                         </div>
-                    </div>
-
+                    </div> 
                     <div class="card">
                         <div class="card-body">
-                            <svg class="svg-icon" viewBox="0 0 20 20">
-                                <path fill="none"
-                                    d="M12.173,16.086c0.72,0,1.304-0.584,1.304-1.305V6.089c0-0.72-0.584-1.304-1.304-1.304c-0.721,0-1.305,0.584-1.305,1.304v8.692C10.868,15.502,11.452,16.086,12.173,16.086z M11.738,6.089c0-0.24,0.194-0.435,0.435-0.435s0.435,0.194,0.435,0.435v8.692c0,0.24-0.194,0.436-0.435,0.436s-0.435-0.195-0.435-0.436V6.089zM16.52,16.086c0.72,0,1.304-0.584,1.304-1.305v-11.3c0-0.72-0.584-1.304-1.304-1.304c-0.721,0-1.305,0.584-1.305,1.304v11.3C15.215,15.502,15.799,16.086,16.52,16.086z M16.085,3.481c0-0.24,0.194-0.435,0.435-0.435s0.435,0.195,0.435,0.435v11.3c0,0.24-0.194,0.436-0.435,0.436s-0.435-0.195-0.435-0.436V3.481z M3.48,16.086c0.72,0,1.304-0.584,1.304-1.305v-3.477c0-0.72-0.584-1.304-1.304-1.304c-0.72,0-1.304,0.584-1.304,1.304v3.477C2.176,15.502,2.76,16.086,3.48,16.086z M3.045,11.305c0-0.24,0.194-0.435,0.435-0.435c0.24,0,0.435,0.194,0.435,0.435v3.477c0,0.24-0.195,0.436-0.435,0.436c-0.24,0-0.435-0.195-0.435-0.436V11.305z M18.258,16.955H1.741c-0.24,0-0.435,0.194-0.435,0.435s0.194,0.435,0.435,0.435h16.517c0.24,0,0.435-0.194,0.435-0.435S18.498,16.955,18.258,16.955z M7.826,16.086c0.72,0,1.304-0.584,1.304-1.305V8.696c0-0.72-0.584-1.304-1.304-1.304S6.522,7.977,6.522,8.696v6.085C6.522,15.502,7.106,16.086,7.826,16.086z M7.392,8.696c0-0.239,0.194-0.435,0.435-0.435s0.435,0.195,0.435,0.435v6.085c0,0.24-0.194,0.436-0.435,0.436s-0.435-0.195-0.435-0.436V8.696z">
-                                </path>
-                            </svg>
-                            <h4>Digital Marketing</h4>
+                            <div class="card-header">
+                               <img src="/assets/icons/Vector (3).png">
+                                <h4>IT Support</h4>
+                            </div>
+                            
                             <p>
-                                We deliver SEO and PPC campaigns to drive
-                                qualified leads & sales your way.
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="card-body">
-                            <svg class="svg-icon" viewBox="0 0 20 20">
-                                <path fill="none" d="M4.68,13.716v-0.169H4.554C4.592,13.605,4.639,13.658,4.68,13.716z M11.931,6.465
-                                c-0.307-0.087-0.623,0.106-0.706,0.432l-1.389,5.484c-0.901,0.084-1.609,0.833-1.609,1.757c0,0.979,0.793,1.773,1.773,1.773
-                                c0.979,0,1.773-0.794,1.773-1.773c0-0.624-0.324-1.171-0.812-1.486l1.377-5.439C12.422,6.887,12.239,6.552,11.931,6.465z
-                                M10.591,14.729H9.408v-1.182h1.183V14.729z M15.32,13.716c0.04-0.058,0.087-0.11,0.126-0.169H15.32V13.716z M10,3.497
-                                c-3.592,0-6.503,2.911-6.503,6.503H4.68c0-2.938,2.382-5.32,5.32-5.32s5.32,2.382,5.32,5.32h1.182
-                                C16.502,6.408,13.591,3.497,10,3.497z M10,0.542c-5.224,0-9.458,4.234-9.458,9.458c0,5.224,4.234,9.458,9.458,9.458
-                                c5.224,0,9.458-4.234,9.458-9.458C19.458,4.776,15.224,0.542,10,0.542z M15.32,16.335v0.167h-0.212
-                                c-1.407,1.107-3.179,1.773-5.108,1.773c-1.93,0-3.701-0.666-5.108-1.773H4.68v-0.167C2.874,14.816,1.724,12.543,1.724,10
-                                c0-4.571,3.706-8.276,8.276-8.276c4.57,0,8.275,3.706,8.275,8.276C18.275,12.543,17.126,14.816,15.32,16.335z"></path>
-                            </svg>
-                            <h4>IT Support</h4>
-                            <p>we provide best IT Support services with affordable prices
+                                We are team with expert technicians and we provide best IT Support services with affordable prices
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
- 
-            <section class="timelineResume" id="timelineResume"> 
-                <div class="header">
-                    <h5>Resume</h5>
-                    <h1>I Worked for Some Big Companies</h1>
-                </div>
-                <div class="tmline-container"> 
-                    <div class="left-tmline">
-                        <h1>Experience</h1>
-                        <div class="timeline">
-                            <ul> 
-                                <li> 
-                                    <div class="content">
-                                        <h3>INK DESIGN Ltd <span>( Feb 2020 - Dec 2021 )</span></h3>
-                                        <small>Graphic Designer</small>
-                                        <p>
-                                            I worked at INK DESIGN ltd for 5 months during internship period where i gained skills of strategies used at workplace,
-                                            web
-                                            development using Wordpress and graphic design
 
-                                        </p>
-                                    </div>
-                                </li>
-                                <li> 
-                                    <div class="content">
-                                        <h3>Mulindi TVET Shool <span>( Feb 2020 - Dec 2021 )</span></h3>
-                                        <small>Web Developer</small>
-                                        <p>
-                                            I have worked on the web application of Mulindi tvet school. Developed in Laravel and PHP for backend and Bootstrap,
-                                            Javascript for
-                                            frontend development.
-
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                
-                                    <div class="content">
-                                        <h3>250 STARTUPS INCUBATOR <span>( November 2021 - Feb 2022 )</span></h3>
-                                        <small>IT Intern </small>
-                                        <p>
-                                        I started professional internship as Software Developer at 250STARTUPS during november until now the internship will be
-                                        closed in
-                                        february of 2022, in this internship we are building the web application and mobile applications that are going to solve
-                                        real problems
-                                        in our community we work with the senior inorder to improve our skills.
-                                
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span></span>
-                                    <div class="content">
-                                        <h3>ACO-Rwanda <span>( Feb 2020 - Dec 2021 )</span></h3>
-                                        <small>Web Developer an Techinician</small>
-                                        <p>
-                                            I have worked on the web application of Stepin rw Developed in Laravel and PHP for backend and Bootstrap, Javascript for
-                                            frontend
-                                            development
-                                
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> 
-                    </div>
-                    <div class="right-tmline">
-                        <h1>Education</h1>
-                        <div class="timeline">
-                            <ul>
-                                <li> 
-                                    <div class="content">
-                                        <h3>IPRC Kigali <span>( February 2022 – present )</span></h3>
-                                        <small>Information and Technology</small>
-                                        <p> 
-                                        Relevant Coursework: Mathematics, Software development and Information technology.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="content">
-                                        <h3>Mulindi TVET School <span>February 2018 – November 2021 )</span></h3>
-                                        <small>Technical Certificate of Secondary Education A2 Level</small>
-                                        <p>Relevant Coursework: Mathematics, Software development, Entrepreneurship.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-            </section> 
+            
             <section class="portfolio" id="Portofolio" >
                 <div class="header">
                     <h5>Portfolio</h5>
                     <h1>What I Do for My Clients</h1>
                 </div>
-                <div class="nav">
-                    <a class="active" href="#">All</a> <a class="" href="#">Web</a>
-                </div>
+               
                 <div class="services-container">  
                     <div class="card"
                         style="background-image:url('/assets/images/Screenshot (207).png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body">
                             <h4>Todo List</h4>
-                            <a class="" href="https://todo-tau-orpin.vercel.app/">Link</a>
+                            <a class="" href="https://todo-tau-orpin.vercel.app/">View online</a>
                         </div>
-                    </div> 
-                     <div class="card"
-                        style="background-image:url('/assets/images/Screenshot (210).png');background-size:cover;background-repeat: no-repeat;background-position: center;">
-                        <div class="card-body">
-                            <h4>Calculator</h4>
-                            <a class="" href="https://codepen.io/yobu/full/QWBNmzw">Link</a>
-                        </div>
-                    </div>  
+                    </div>   
                     <div class="card" style="background-image:url('/assets/images/Screenshot\ \(141\).png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body"> 
                             <h4>Portfolio</h4>
-                            <a class="" href="https://yobu.vercel.app/">Link</a>
+                            <a class="" href="https://yobu.vercel.app/">View online</a>
                         </div>
                     </div>  
                     <div class="card"
                         style="background-image:url('/assets/images/Screenshot\ \(142\).png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body">
                             <h4>Stepin</h4>
-                            <a class="" href="https://stepin.rw/">Link</a>
+                            <a class="" href="https://stepin.rw/">View online</a>
                         </div>
                     </div>
                     <div class="card"
                         style="background-image:url('/assets/images/Screenshot\ \(143\).png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body">
                             <h4>Aco-Rwanda</h4>
-                            <a class="" href="http://acorwanda.org/">Link</a>
+                            <a class="" href="http://acorwanda.org/">View online</a>
                         </div>
                     </div>
                     <div class="card"
                         style="background-image:url('/assets/images/Screenshot\ \(144\).png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body">
                             <h4>Mulindi TVET</h4>
-                            <a class="" href="https://mulinditvet.ac.rw/">Link</a>
+                            <a class="" href="https://mulinditvet.ac.rw/">View online</a>
                         </div>
                     </div>
                     <div class="card"
                         style="background-image:url('/assets/images/Screenshot (66).4acf00c584f7bb157ccb.png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body">
                             <h4>RealEstate</h4>
-                            <a class="" href="https://real-estate-yobu.vercel.app/">Link</a>
+                            <a class="" href="https://real-estate-yobu.vercel.app/">View online</a>
                         </div>
                     </div>
                     <div class="card"
                         style="background-image:url('/assets/images/Screenshot (67).7577dbfb3aea9f1e2dab (1).png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body">
                             <h4>Movie App</h4>
-                            <a class="" href="http://movies-yobu.herokuapp.com/">Link</a>
+                            <a class="" href="http://movies-yobu.herokuapp.com/">View online</a>
                         </div>
                     </div>
                     <div class="card"
                         style="background-image:url('/assets/images/Screenshot (63).b5358900110f33021622.png');background-size:cover;background-repeat: no-repeat;background-position: center;">
                         <div class="card-body">
                             <h4>Front-end Dev</h4>
-                            <a class="" href="https://jobeuse.github.io/yobu-kevin/">Link</a>
+                            <a class="" href="https://jobeuse.github.io/yobu-kevin/">View online</a>
                         </div>
                     </div>
 
                     
-                </div>
-            </section>
-            <section class="testimonials">
-                <div class="header">
-                    <h5>Testimonials</h5>
-                    <h1>What Clients Say</h1>
-                </div>
-                <div class="testimonials-container">
-                    <div class="quote"><img src="/assets/images/Vector.png"></div>                 
-
-                <div class="slider">
-                    <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav" />
-                    <input type="radio" name="slider" title="slide2" class="slider__nav" />
-                    <input type="radio" name="slider" title="slide3" class="slider__nav" />
-                    <input type="radio" name="slider" title="slide4" class="slider__nav" />
-                    <div class="slider__inner">
-                        <div class="slider__contents"> 
-                            <p class="slider__txt">
-                                <em>
-                                    Really the Code Quality, Customer Support, and design
-                                    are awesome and its good support they are giving. 
-                                
-                                </em>
-                            </p>
-                            <div class="user-profile">
-                                <div class="user-info">
-                                    <img src="/assets/images/IMG-20220203-WA0002.jpg">
-                                    <div>
-                                        <h4>John D.</h4>
-                                        <p>Stepin</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider__contents">
-                            <p class="slider__txt">
-                                <em>
-                                    Really the Code Quality, Customer Support, and design
-                                    are awesome and its good support they are giving.
-                        
-                                </em>
-                            </p>
-                            <div class="user-profile">
-                                <div class="user-info">
-                                    <img src="/assets/images/IMG-20220203-WA0002.jpg">
-                                    <div>
-                                        <h4>John D.</h4>
-                                        <p>Stepin</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider__contents">
-                            <p class="slider__txt">
-                                <em>
-                                    Really the Code Quality, Customer Support, and design
-                                    are awesome and its good support they are giving.
-                        
-                                </em>
-                            </p>
-                            <div class="user-profile">
-                                <div class="user-info">
-                                    <img src="/assets/images/IMG-20220203-WA0002.jpg">
-                                    <div>
-                                        <h4>John D.</h4>
-                                        <p>Stepin</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider__contents">
-                            <p class="slider__txt">
-                                <em>
-                                    Really the Code Quality, Customer Support, and design
-                                    are awesome and its good support they are giving.
-                        
-                                </em>
-                            </p>
-                            <div class="user-profile">
-                                <div class="user-info">
-                                    <img src="/assets/images/IMG-20220203-WA0002.jpg">
-                                    <div>
-                                        <h4>John D.</h4>
-                                        <p>Stepin</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </section> 
-            <section class="blog" id="Blog">
-                <div class="header">
-                    <h5>Blog</h5>
-                    <h1>Latest Blog Posts</h1> 
-                </div> 
-
-                <div class="blog-container" id="blogcontainer">
-                    
-                    <div class="card" style="word-wrap: break-word;">
-                        <a href="starrating.html">
-                        <div class="car-header" style="background-image:url('https://images.unsplash.com/photo-1633613286991-611fe299c4be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');background-size:cover;background-repeat: no-repeat;">
-                        </div>
-                        </a>
-
-                        <div class="card-body" style="word-wrap: break-word;">
-                            <p><a href="starrating.html">Design</a> August 20, 2022</p>
-                            <h4> Star Ratings With Very Little CSS</h4> 
-                        </div>
-                    </div>
-               
-                    <div class="card" style="word-wrap: break-word;">
-                        <a href="Helpchoose thesyntax.html">
-                        <div class="car-header"
-                            style="background-image:url('https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80');background-size:cover;background-repeat: no-repeat;">
-                        </div>
-                        </a>
-                        <div class="card-body" style="word-wrap: break-word;">
-                            <p><a href="Helpchoose thesyntax.html">Web dev</a> Jun 2, 2021</p>
-                            <h4> Help choose the syntax for CSS Nesting</h4>
-                        </div>
-                    </div>  
-                </div>
-            </section>
             <section class="contact" id="Contact">
                 <div class="header">
                     <h5>Contact</h5>
@@ -685,11 +456,12 @@
                            
                             <div id="error" style="color:red ;margin: 10px;"></div>
                             <div id="success" style="background-color: green;color: white;margin-bottom: 10px;"></div>
-                            <div class="inputs">
-                                <input type="hidden" name="contact_number">
-                                <input type="text" id="name" placeholder="Your name">
-                                <input type="text" id="email"  placeholder="Your Email"> 
-                           
+                            <div class="inputs"> 
+                                <div class="emailname"> 
+                                       <input type="text" id="name" placeholder="Your name">  
+                                        <input type="text" id="email"  placeholder="Your Email">  
+                                    
+                                </div>  
                                 <textarea id="message"  placeholder="Your Message"></textarea>
                             </div>  
 <div class="g-recaptcha" data-sitekey="6Lfc57ojAAAAANl3lTq-zNcbZkkEmCpkv2Bso_ZH"></div>
@@ -697,14 +469,14 @@
                         </form>
                     </div>
                 </div>
-            </section> -->
-            <div class="footer ">
-                Designed with love by Ir Yobu ❤
-            </div>
-            
-        </main> 
-    </div> 
-<script src="/assets/js.js"></script>
+            </section>  
+        </main>  
+    </div>
+    <footer class="footer ">
+        Made by Ir Yobu ❤
+    </footer>
+<script src="/assets/js/js.js"></script>
+<script src="/assets/js/navbar.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script type="text/javascript">
     (function () {
