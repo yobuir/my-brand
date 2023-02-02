@@ -2,11 +2,9 @@
 
 ### Overview 
 personal portfolio website <br>
- demo : https://iradukunda-yobu.vercel.app/
+ demo : https://jobeuse.github.io/my-brand/index.html
  
- 
-![Screenshot (147)](https://user-images.githubusercontent.com/62539654/207793594-c4918520-a8a3-4ac9-940a-d2d76290914f.png)
-
+  
 ### Built With
 HTML CSS and JAVASCRIPT
 

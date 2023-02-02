@@ -18,9 +18,9 @@
                     <div class="Nav_list">
                         <!-- desktop -->
                         <ul class="Nav_items " id="desktop">
-                            <li><a href="home.html" >Home</a></li>
-                            <li><a href="blog.html" class="active">Blogs</a></li>
-                            <li><a href="newBlog.html">New blog</a></li>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="blog.html">Blogs</a></li>
+                            <li><a href="newBlog.html" class="active">New blog</a></li>
                             <li><a href="">Comments</a></li>
                             <li><a href="">Settings</a></li>
                         </ul>
@@ -56,21 +56,26 @@
                 </div>
 
                 <section class="contact" id="Contact">
-                    <div class="header">
-                        <h5>Blog</h5>
-                        <h1>Add new Blog</h1>
+                    <div class="header"> 
+                        <h1>Create new Blog</h1>
+                        <p>Add new blog content</p>
                     </div>
                     <div class="contact-container">
                         <div class="contact-inner-right">
                             <form class="form" id="blogForm">
                                 <div id="error" style="color:red ;margin: 10px;"></div>
-                                <div id="success" style="background-color: green;color: white;margin-bottom: 10px;"></div>
+                                <div id="success" style="background-color: green;color: white;margin-bottom: 10px;">
+                                </div>
                                 <div class="inputs">
+                                    <label>Title</label>
                                     <input type="text" id="blog_title" placeholder="title">
+                                    <label>Date</label>
                                     <input type="date" id="blog_date" placeholder="blog_date">
-                                    <input type="url" id="blog_image" placeholder="image url">
-                
+                                    <label>Cover image</label>
+                                    <input type="url" id="blog_image" placeholder="image url"> 
+                                    <label>Description</label>
                                     <textarea id="blog_body" placeholder="Body"></textarea>
+                                    
                                 </div>
                                 <button onclick="addBlog()">Submit</button>
                             </form>
