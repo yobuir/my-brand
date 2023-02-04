@@ -8,10 +8,7 @@ function showNavabar (){
         navbar.style.display="block";  
         // burger_button.style.display="none"
         close.style.display="block";
-    });
-
-   
-   
+    });   
 }
 
 
