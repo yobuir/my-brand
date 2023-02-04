@@ -14,4 +14,4 @@ function showNavabar (){
 }
 
 // showNavabar();
-console.log("click")
+console.log("Navbar")

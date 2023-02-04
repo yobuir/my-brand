@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    
     <link rel="stylesheet" href="style/dashboard.css">
+    
 </head>
 
 <body>
@@ -19,10 +21,10 @@
                         <!-- desktop -->
                         <ul class="Nav_items " id="desktop">
                             <li><a href="home.html" >Home</a></li>
-                            <li><a href="blog.html" class="active">Blogs</a></li>
+                            <li><a href="blog.html"  class="active">Blogs</a></li>
                             <li><a href="newBlog.html">New blog</a></li>
-                            <li><a href="">Comments</a></li>
-                            <li><a href="">Settings</a></li>
+                            <li><a href="comments.html">Comments</a></li>
+                            <li><a href="settings.html">Settings</a></li>
                         </ul>
                     </div>
                 </div>
@@ -40,12 +42,20 @@
                             </a>
 
                         </div>
-                        <div>
-                            <div class="profile">
+                        <div class="" style="position:relative">
+                            <div class="profile" onclick="ShowDropDown()" style="cursor:pointer">
                                 <div class="image">
                                     <img src="/assets/images/IMG-20220203-WA0001.jpg">
                                 </div>
                                 <div class="name">Yobu ir</div>
+                        
+                            </div>
+                            <div class="drop-down" id="drop-down">
+                                <div class="content">
+                                    <ul>
+                                        <li class="logout">Logout</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -53,35 +63,77 @@
                 </header>
                 <div class="message">
                     <h3>Hi! Yobu welcome back !</h3>
-                </div>
+                </div> 
 
-                <section class="contact" id="Contact">
+                <section class="blog"> 
                     <div class="header">
-                        <h5>Blog</h5>
-                        <h1>Add new Blog</h1>
+                        <a href="newBlog.html" class="btn ">New blog</a>
                     </div>
-                    <div class="contact-container">
-                        <div class="contact-inner-right">
-                            <form class="form" id="blogForm">
-                                <div id="error" style="color:red ;margin: 10px;"></div>
-                                <div id="success" style="background-color: green;color: white;margin-bottom: 10px;"></div>
-                                <div class="inputs">
-                                    <input type="text" id="blog_title" placeholder="title">
-                                    <input type="date" id="blog_date" placeholder="blog_date">
-                                    <input type="url" id="blog_image" placeholder="image url">
-                
-                                    <textarea id="blog_body" placeholder="Body"></textarea>
+                    <div class="blog-container" id="blogcontainer"> 
+                        <div class="card">
+                            <a href="starrating.html">
+                                <div class="car-header"
+                                    style="background-image:url('https://images.unsplash.com/photo-1633613286991-611fe299c4be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');background-size:cover;background-repeat: no-repeat;">
                                 </div>
-                                <button onclick="addBlog()">Submit</button>
-                            </form>
+                            </a> 
+                            <div class="card-body" style="word-wrap: break-word;">
+                                <p><a href="starrating.html">Design</a> August 20, 2022</p>
+                                <h4> Star Ratings With Very Little CSS</h4>
+                            </div>
+                            <div class="card-footer">
+                                <div id="comment_button" onclick="openModel()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                    <path fill-rule="evenodd"
+                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg>
+                            </div>
+                                <div style="color:red"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                </svg></div>
+                            </div>
+                        </div>  
+                </section>
+
+
+                <!-- model box -->
+                <div class="model-box" id="model-box">
+                    <div class="model-header">
+                        <div class="model-title">
+                            <h3> The secret ingredient to telling a good story.</h3>
+                            <p>Updating content</p>
+                        </div>
+                        <div class="model-close" id="closeButton" onclick="closeModel()">
+                            <i class="bi bi-x-lg"></i>
                         </div>
                     </div>
-                </section>
+                    <div class="model-body">
+                        <div class="form">
+                            <form>
+                                <label>Title</label>
+                                <input type="text" id="blog_title" placeholder="title">
+                                <label>Date</label>
+                                <input type="date" id="blog_date" placeholder="blog_date">
+                                <label>Cover image</label>
+                                <input type="url" id="blog_image" placeholder="image url">
+                                <label>Description</label>
+                                <textarea id="blog_body" placeholder="Body"></textarea>
+                                <button>Update</button>
+                            </form>
+                        </div>
+                    </div> 
+                </div> 
             </main>
         </div>
 
     </div>
     <script src="js/navbar.js"></script>
+    <script src="/assets/js/model.js"></script>
+    <script src="js/dropdown.js"></script>
 </body>
 
 </html>

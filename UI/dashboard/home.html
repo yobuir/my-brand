@@ -20,8 +20,8 @@
                             <li><a href="home.html" class="active">Home</a></li>
                             <li><a href="blog.html">Blogs</a></li>
                             <li><a href="newBlog.html">New blog</a></li>
-                            <li><a href="">Comments</a></li>
-                            <li><a href="">Settings</a></li> 
+                            <li><a href="comments.html">Comments</a></li>
+                            <li><a href="settings.html">Settings</a></li>
                         </ul>  
                     </div> 
                 </div> 
@@ -38,14 +38,22 @@
                             </a>
 
                         </div>
-                       <div>
-                        <div class="profile">
-                            <div class="image">
-                                <img src="/assets/images/IMG-20220203-WA0001.jpg"> 
+                        <div class="" style="position:relative">
+                            <div class="profile" onclick="ShowDropDown()" style="cursor:pointer">
+                                <div class="image">
+                                    <img src="/assets/images/IMG-20220203-WA0001.jpg">
+                                </div>
+                                <div class="name">Yobu ir</div>
+                        
                             </div>
-                            <div class="name">Yobu ir</div>
-                        </div> 
-                       </div>
+                            <div class="drop-down" id="drop-down">
+                                <div class="content">
+                                    <ul>
+                                        <li class="logout">Logout</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         
                     </div>
                 </header> 
@@ -92,5 +100,6 @@
        
     </div>  
     <script src="js/navbar.js"></script>
+    <script src="js/dropdown.js"></script>
 </body> 
 </html>

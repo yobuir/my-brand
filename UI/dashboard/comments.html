@@ -20,8 +20,8 @@
                         <ul class="Nav_items " id="desktop">
                             <li><a href="home.html">Home</a></li>
                             <li><a href="blog.html">Blogs</a></li>
-                            <li><a href="newBlog.html"  class="active">New blog</a></li>
-                            <li><a href="comments.html">Comments</a></li>
+                            <li><a href="newBlog.html">New blog</a></li>
+                            <li><a href="comments.html"  class="active">Comments</a></li>
                             <li><a href="settings.html">Settings</a></li>
                         </ul>
                     </div>
@@ -62,32 +62,57 @@
                     <h3>Hi! Yobu welcome back !</h3>
                 </div>
 
-                <section class="contact" id="Contact">
-                    <div class="header"> 
-                        <h1>Create new Blog</h1>
-                        <p>Add new blog content</p>
-                    </div>
-                    <div class="contact-container">
-                        <div class="contact-inner-right">
-                            <form class="form" id="blogForm">
-                                <div id="error" style="color:red ;margin: 10px;"></div>
-                                <div id="success" style="background-color: green;color: white;margin-bottom: 10px;">
+                <section class="comment" id="comment">
+                    <div class="comment-container" id="commentContainer">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="profile">
+                                    <div class="name">Yobu ir</div>
+                                    <div class="email">irayob@gmail.com</div>
                                 </div>
-                                <div class="inputs">
-                                    <label>Title</label>
-                                    <input type="text" id="blog_title" placeholder="title">
-                                    <label>Date</label>
-                                    <input type="date" id="blog_date" placeholder="blog_date">
-                                    <label>Cover image</label>
-                                    <input type="url" id="blog_image" placeholder="image url"> 
-                                    <label>Description</label>
-                                    <textarea id="blog_body" placeholder="Body"></textarea>
-                                    
+                            </div>
+                            <div class="card-body">
+                                <p>I have this friend who considers himself a professional in his field. When he encounters other
+                                    professionals acting
+                                    unprofessionally</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="delete">
+                                    Delete
                                 </div>
-                                <button onclick="addBlog()">Submit</button>
-                            </form>
+                
+                                <div>
+                                    <small>August 20, 2022</small>
+                                </div>
+                            </div>
                         </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="profile">
+                                    <div class="name">Yobu ir</div>
+                                    <div class="email">irayob@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p>I have this friend who considers himself a professional in his field. When he encounters other
+                                    professionals
+                                    acting
+                                    unprofessionally</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="delete">
+                                    Delete
+                                </div>
+                
+                                <div>
+                                    <small>August 20, 2022</small>
+                                </div>
+                            </div>
+                        </div>
+                
+                
                     </div>
+                
                 </section>
             </main>
         </div>

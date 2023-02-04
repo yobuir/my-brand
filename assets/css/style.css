@@ -1144,7 +1144,7 @@ padding: 5px;
 
 
 @media screen and (max-width: 900px) {
-.model-box {  width: 100%;}
+.model-box {  width: 80%;}
 }
 
 .model-box .model-header{
