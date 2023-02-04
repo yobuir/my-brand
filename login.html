@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>My Website | login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+    <link rel="stylesheet" href="assets/css/style.css"> 
 <style>
     .auth-page{ 
         width: 100%;
         height: 100vh;
-        display: flex;
+        display: flex;  
         justify-content: center;
         align-items: center;
     }
@@ -48,9 +46,9 @@
 </head>
 
 <body>
-    <div class="container"> 
+    <div class="container">  
         <nav class="Navbar">
-            <div class="logo"><img src="/assets/images/Logo.png"></div>
+            <div class="logo"><img src="./assets/images/Logo.png"></div>
         
             <div class="NavItems_icons" id="NavItems_icons">
                 <div class="Nav_list">
@@ -61,25 +59,25 @@
         
                     <!-- desktop -->
                     <ul class="Nav_items " id="desktop">
-                        <li><a href="/index.html" class="active">Home</a></li>
-                        <li><a href="/index.html#About">About</a></li>
-                        <li><a href="/index.html#skills">Skills</a></li>
-                        <li><a href="/index.html#services">services</a></li>
-                        <li><a href="/index.html#Portofolio">Portofolio</a></li>
-                        <li><a href="/UI/web/blog.html">Blog</a></li>
-                        <li><a href="/index.html#Contact">Contact</a></li>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="index.html#About">About</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="index.html#services">services</a></li>
+                        <li><a href="index.html#Portofolio">Portofolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#Contact">Contact</a></li>
                         <li><a href="">Login</a></li>
                     </ul>
         
                     <!-- mobile -->
                     <ul class="Nav_items " id="mobile">
                         <li><a href="index.html" class="active">Home</a></li>
-                        <li onclick="navClick()"><a href="/index.html#About">About</a></li>
-                        <li onclick="navClick()"><a href="/index.html#skills">Skills</a></li>
-                        <li onclick="navClick()"><a href="/index.html#services">services</a></li>
-                        <li onclick="navClick()"><a href="/index.html#Portofolio">Portofolio</a></li>
-                        <li onclick="navClick()"><a href="/UI/web/blog.html">Blog</a></li>
-                        <li onclick="navClick()"><a href="/index.html#Contact">Contact</a></li>
+                        <li onclick="navClick()"><a href="index.html#About">About</a></li>
+                        <li onclick="navClick()"><a href="index.html#skills">Skills</a></li>
+                        <li onclick="navClick()"><a href="index.html#services">services</a></li>
+                        <li onclick="navClick()"><a href="index.html#Portofolio">Portofolio</a></li>
+                        <li onclick="navClick()"><a href="blog.html">Blog</a></li>
+                        <li onclick="navClick()"><a href="index.html#Contact">Contact</a></li>
                         <li onclick="navClick()"><a href="">Login</a></li>
                     </ul>
         
@@ -135,28 +133,33 @@
                 <span class="span2"></span>
                 <span class="span3"></span>
                 <span class="span4"></span>
-            </a> 
+            </a>
+            <!-- <a href="javascript:void(0);"  class="close" id="close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                                    </svg>
+                                </a> -->
         </nav>
         <div class="auth-page">
             <section class="login-section">
                 <div class="header">
-                    <h1>New Account</h1>
+                    <h1>Login </h1>
                 </div>
                 <div class="body">
                     <form>
                         <input type="text" class="form-control" placeholder="Email">
-                        <input type="text" class="form-control" placeholder="New Password">
-                        <input type="text" class="form-control" placeholder="COnfirm Password">
-                        <button>Create account</button>
-                        <p>If you already have an account 
-                            <a href="login.html">Login to account</a></p>
+                        <input type="text" class="form-control" placeholder="Email">
+                        <button>Login to account</button>
+                        <p>If you want new account
+                            <a href="signup.html">Register new account</a></p>
                     </form>
                 </div>
             </section>
         </div> 
-    </div> 
-    <script src="/assets/js/js.js"></script>
-    <script src="/assets/js/navbar.js"></script>
+    </div>  
+    <script src="./assets/js/js.js"></script>
+    <script src="./assets/js/navbar.js"></script>
 </body>
 
 </html>

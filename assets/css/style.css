@@ -336,7 +336,7 @@ body{
     min-width: 350.56px;
     min-height: 406.56px; 
     transition: 0.4s;
-    background-image: url('/assets/images/Yobu.png');
+    background-image: url('./assets/images/Yobu.png');
     background-repeat: no-repeat;
     background-size: cover; 
     box-shadow: -22px 28px 0px 0px var(--gray);
@@ -461,7 +461,7 @@ body{
     min-height: 406.56px;
     background-size: contain;
     box-shadow: -22px 28px 0px 0px var(--gray);
-    background-image: url('/assets/images/pankaj-patel-Fi-GJaLRGKc-unsplash.jpg');
+    background-image: url('assets/images/pankaj-patel-Fi-GJaLRGKc-unsplash.jpg');
 }
  
 
