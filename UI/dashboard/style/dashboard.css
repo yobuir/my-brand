@@ -110,16 +110,22 @@ h3{
     height: 3px;
     margin: 5px;
 
-}
+} 
 
 @media screen and (max-width: 901px) {
     .Navbar {
         display: none;
+        position: absolute;
+        left: 0;
     }
+
 }
 
 @media screen and (min-width: 901px) {
     .burger_button {
+        display: none;
+    }
+    #closeButton{
         display: none;
     }
 }
@@ -179,7 +185,7 @@ h3{
     }
 
 .main .header {
-    position:sticky;top:0;
+    /* position:sticky;top:0; */
 }
 .main .header .row{
     display: flex;  
