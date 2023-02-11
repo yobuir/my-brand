@@ -130,7 +130,10 @@ h3{
     }
 }
 
-
+  /* #closeButton{
+    width:20;
+     height:20;
+    } */
 .Navbar .logo{ 
     width: 100%;
     display: flex;
