@@ -24,7 +24,4 @@ const createPost = async (e) => {
     });
     window.location.replace('/blog.html');
 }
-
-
-
 blogForm.addEventListener('submit', createPost);
