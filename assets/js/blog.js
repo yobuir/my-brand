@@ -1,10 +1,13 @@
 const blogcontainer=document.getElementById("blogcontainer");
 
+
+// view list of posts
+
 const renderPosts= async () => {
     let uri='http://localhost:3000/posts';
     const res=await fetch(uri);
     const posts=await res.json();
-    console.log(posts);
+    // console.log(posts);
 
     let content= '';
     posts.forEach(post => {

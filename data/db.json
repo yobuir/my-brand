@@ -5,7 +5,14 @@
         "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
         "image":"https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')" ,
         "date":"August 20, 2022"
-    }
+    },
+    {
+    "id": 2,
+    "title": "Help choose the syntax for CSS Nesting",
+    "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
+    "image": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')",
+    "date": "August 20, 2022"
+}
   ],
   "likes":[
     {
