@@ -1,28 +1,41 @@
 {
   "posts": [
-    {   "id": 1, 
-        "title": "Help choose the syntax for CSS Nesting", 
-        "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
-        "image":"https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')" ,
-        "date":"August 20, 2022"
+    {
+      "id": 1,
+      "title": "Help choose the syntax for CSS Nesting",
+      "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
+      "image": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')",
+      "date": "August 20, 2020"
     },
     {
-    "id": 2,
-    "title": "Help choose the syntax for CSS Nesting",
-    "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
-    "image": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')",
-    "date": "August 20, 2022"
-}
-  ],
-  "likes":[
+      "id": 2,
+      "title": "Help choose the syntax for CSS Nesting",
+      "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
+      "image": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')",
+      "date": "August 20, 2022"
+    },
     {
-        "id":1,
-        "liked":1,
-        "user_id":1,
-        "postId": 1 ,
-        "date":1
-
+      "title": "Quae in deserunt nos",
+      "body": "Ducimus in quo temp",
+      "image": "https://www.xiqykefuho.biz",
+      "date": "1997-07-01",
+      "id": 3
+    },
+    {
+      "title": "Officiis rerum ut vo",
+      "body": "Rerum necessitatibus",
+      "image": "https://www.zudo.com",
+      "date": "1986-06-05",
+      "id": 4
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "liked": 1,
+      "user_id": 1,
+      "postId": 1,
+      "date": 1
     }
   ]
-
 }

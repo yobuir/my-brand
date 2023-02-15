@@ -21,7 +21,6 @@ const renderingSinglePost = async () => {
         <p>${post.date}</p>
         <h1>${post.title}</h1>
     </div>
-
      <div class="contact-container">
                 <p>
                    ${post.body}
@@ -36,7 +35,6 @@ const renderingSinglePost = async () => {
                     </div>
                 </div>
             </div> 
-    
     `;
     blogOpen.innerHTML=content;
 }
