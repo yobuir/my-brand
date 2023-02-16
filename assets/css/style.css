@@ -1078,14 +1078,23 @@ height: 30px;
 width: 30px;
 padding: 5px; 
 }
-.addres>.icon svg{
-    width: 30px;
+.addres .icon svg{
+    width: 30px; 
     height: 30px;
 }
-.addres > .icon {
+.addres .icon {
     margin-top: 20px;
 }
+.addres .icon  path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill:#ffff;
+}
 
+.addres .iconcircle {
+    stroke:#ffff;
+    stroke-width: 1;
+}
 .contact-inner-right input { 
     height: 34px;
     border:1px solid var(--dar-blue);
