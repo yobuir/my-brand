@@ -1,7 +1,8 @@
+
 const blogForm=document.getElementById("blogForm");
 const error=document.getElementById("error");
-let errMessage=""; 
- 
+let errMessage="";  
+
 const createPost = async (e) => {
     e.preventDefault();
 
@@ -24,4 +25,5 @@ const createPost = async (e) => {
     });
     window.location.replace('/blog.html');
 }
+
 blogForm.addEventListener('submit', createPost);

@@ -11,8 +11,7 @@ const renderPosts= async () => {
 
     let content= '';
     posts.forEach(post => {
-        content+=`
-        
+        content+=` 
           <div class="card" style="word-wrap: break-word;">
             <div class="white-background"> 
                 <div class="card-body" style="word-wrap: break-word;"> 

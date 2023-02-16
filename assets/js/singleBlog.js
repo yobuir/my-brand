@@ -12,7 +12,7 @@ const renderingSinglePost = async () => {
     let uri='http://localhost:3000/posts/'+id;
     const res=await fetch(uri);
     const post=await res.json();
-    console.log(post);
+    // console.log(post);
 
     let content= '';
     content+=`

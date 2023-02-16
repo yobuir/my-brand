@@ -1212,7 +1212,7 @@ padding: 5px;
 
  .model-box .model-footer .comment{
     width: 100%;
-    background-color: ;
+    /* background-color: ; */
     display: flex;
     margin-top:40px ;
     flex-direction: column;

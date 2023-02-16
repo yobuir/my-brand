@@ -1,20 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Help choose the syntax for CSS Nesting",
-      "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
-      "image": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')",
-      "date": "August 20, 2020"
-    },
-    {
-      "id": 2,
-      "title": "Help choose the syntax for CSS Nesting",
-      "body": "I have this friend who considers himself a professional in his field. When he encounters other  professionals acting  unprofessionally,...",
-      "image": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80')",
-      "date": "August 20, 2022"
-    },
-    {
       "title": "Quae in deserunt nos",
       "body": "Ducimus in quo temp",
       "image": "https://www.xiqykefuho.biz",
@@ -34,13 +20,24 @@
       "image": "https://www.mabowinakalipa.me.uk",
       "date": "2009-06-18",
       "id": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Yobu",
+      "email": "yobu@gmail.com",
+      "password": "password",
+      "role": "user",
+      "date": "1986-06-05"
     },
     {
-      "title": "Eligendi ipsum est ",
-      "body": "Minim rerum ipsum l",
-      "image": "https://www.cotulygyjer.cm",
-      "date": "2023-03-14",
-      "id": 6
+      "id": 2,
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "password",
+      "role": "admin",
+      "date": "1986-06-05"
     }
   ]
 }
