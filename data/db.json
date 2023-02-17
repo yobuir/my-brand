@@ -25,19 +25,19 @@
   "users": [
     {
       "id": 1,
-      "name": "Yobu",
-      "email": "yobu@gmail.com",
-      "password": "password",
-      "role": "user",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "admin@gmail.com",
+      "role": "h",
       "date": "1986-06-05"
     },
     {
-      "id": 2,
       "name": "Admin",
-      "email": "admin@gmail.com",
-      "password": "password",
-      "role": "admin",
-      "date": "1986-06-05"
+      "email": "yobuir@gmail.com",
+      "password": "yobuir@gmail.com",
+      "role": "h",
+      "date": "Fri Feb 17 2023 09:52:55 GMT+0200 (Eastern European Standard Time)",
+      "id": 2
     }
   ]
 }

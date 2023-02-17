@@ -4,8 +4,8 @@ const blogcontainer=document.getElementById("blogcontainer");
 // view list of posts
 
 const renderPosts= async () => {
-    let uri='http://localhost:3000/posts';
-    const res=await fetch(uri);
+    let url='http://localhost:3000/posts';
+    const res=await fetch(url);
     const posts=await res.json();
     // console.log(posts);
 

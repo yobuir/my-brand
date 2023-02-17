@@ -145,9 +145,11 @@
                     <h1>Login </h1>
                 </div>
                 <div class="body">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Email">
-                        <input type="text" class="form-control" placeholder="Email">
+                    <form id="Form">
+                        <div id="error"></div>
+                        <div id="success"></div>
+                        <input type="text" class="form-control" name="email" placeholder="Email">
+                        <input type="password" class="form-control" name="password" placeholder="password">
                         <button>Login to account</button>
                         <p>If you want new account
                             <a href="signup.html">Register new account</a></p>
@@ -158,6 +160,7 @@
     </div>  
     <script src="./assets/js/js.js"></script>
     <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/login.js"></script>
 </body>
 
 </html>
