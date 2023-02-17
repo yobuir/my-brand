@@ -1,6 +1,15 @@
 const blogcontainer=document.getElementById("blogcontainer");
-// const loggedUser=document.getElementById
+const loggedUser=document.getElementById('loggedUser');
 
+let user =  sessionStorage.getItem("loggedUser");
+let loggUser =JSON.parse(user);
+ 
+if (loggUser != null) {
+  loggedUser.innerHTML=loggUser[0].name;  
+}
+
+
+// console.log();
 // view list of posts
 
 const renderPosts= async () => {

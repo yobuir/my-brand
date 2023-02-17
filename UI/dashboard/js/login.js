@@ -21,7 +21,7 @@ const createUser = async (e) => {
                 sessionStorage.setItem("loggedUser",JSON.stringify(userLogged));
               
                 errMessage="";
-                window.location.replace('blog.html')
+                window.location.replace('home.html')
         	}else{ 
         		errMessage="user not found";
         		}
