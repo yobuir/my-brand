@@ -9,7 +9,7 @@ const renderingSinglePost = async () => {
 
     const id= new URLSearchParams(window.location.search).get("id");
 
-    let uri='http://localhost:3000/posts/'+id;
+    let uri='https://fair-lime-beetle-toga.cyclic.app/posts/'+id;
     const res=await fetch(uri);
     const post=await res.json();
     // console.log(post);

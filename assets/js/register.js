@@ -24,7 +24,7 @@ const createUser = async (e) => {
                   "role": "user",
                   "date": Date()
             }
-             await fetch('http://localhost:3000/users', {
+             await fetch('https://fair-lime-beetle-toga.cyclic.app/users', {
                 method: 'POST',
                 body: JSON.stringify(user),
                 headers: { 'Content-Type': 'application/json' }

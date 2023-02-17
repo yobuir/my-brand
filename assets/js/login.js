@@ -12,7 +12,7 @@ const createUser = async (e) => {
         if ( email ===  "" || password ===  "") {
              errMessage="No valid data";
         }else{  
-        	let data=await fetch ('http://localhost:3000/users');
+        	let data=await fetch ('https://fair-lime-beetle-toga.cyclic.app/users');
         	response=await data.json(data);
         	// console.log(response);
         	let userLogged=response.filter(user =>user.email == email && user.password == password);

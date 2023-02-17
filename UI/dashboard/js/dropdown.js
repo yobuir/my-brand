@@ -1,8 +1,8 @@
 var dropDown= document.getElementById("drop-down");  
-let loginScreen=document.getElementById("loginScreen");
+// let loginScreen=document.getElementById("loginScreen");
 let name=document.getElementById('name');
 let profile=document.getElementById("profile");
-loginScreen.display="none";
+// loginScreen.display="none";
 
 function ShowDropDown (){  
     if ( dropDown.style.display == 'block'){
@@ -20,7 +20,7 @@ function userAuth( ) {
      if (loggUser != null) {
        name.innerHTML=loggUser[0].name;  
          console.log(loggUser);
-          loginScreen.display="none";
+          // loginScreen.display="none";
      }else{
           loginScreen.display="block";
           profile.display="none";

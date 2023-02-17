@@ -1,5 +1,5 @@
 const DeleteBlog = async (id) => {
-    let uri='http://localhost:3000/posts/'+id;
+    let uri='https://fair-lime-beetle-toga.cyclic.app/posts/'+id;
     const res=await fetch(uri, {
         method : "DELETE"
     });

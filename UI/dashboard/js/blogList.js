@@ -4,7 +4,7 @@ const blogcontainer=document.getElementById("blogcontainer");
 // view list of posts
 
 const renderPosts= async () => {
-    let uri='http://localhost:3000/posts';
+    let uri='https://fair-lime-beetle-toga.cyclic.app/posts';
     const res=await fetch(uri);
     const posts=await res.json();
     // console.log(posts);
@@ -24,7 +24,7 @@ const renderPosts= async () => {
                                 <h4>${post.title}</h4>
                             </div>
                             <div class="card-footer">
-                                <div id="comment_button" onclick="openModel()">
+                                <div id="comment_button" onclick="openModel(${post.id})">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
                                     viewBox="0 0 16 16">
                                     <path
