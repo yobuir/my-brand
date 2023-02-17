@@ -1,5 +1,5 @@
 const blogcontainer=document.getElementById("blogcontainer");
-
+// const loggedUser=document.getElementById
 
 // view list of posts
 

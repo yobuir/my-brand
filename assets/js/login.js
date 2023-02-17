@@ -16,19 +16,19 @@ const createUser = async (e) => {
         	response=await data.json(data);
         	// console.log(response);
         	let userLogged=response.filter(user =>user.email == email && user.password == password);
-        	console.log(userLogged.length);
-
-        	if (userLogged.length) {
-        		
+        	if (JSON.stringify(userLogged) !== []) {
+        		// console.log(userLogged);
+                sessionStorage.setItem("loggedUser",JSON.stringify(userLogged));
+                // console.log( sessionStorage.getItem("loggedUser"));
+                errMessage="";
+                window.location.replace('blog.html')
         	}else{ 
         		errMessage="user not found";
         		}
         	}
 
-        
-console.log(errMessage);
+         
 error.innerHTML=errMessage; 
    
 }
-
-Form.addEventListener('submit', createUser);
+Form.addEventListener('submit', createUser); 

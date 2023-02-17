@@ -31,14 +31,12 @@ const createUser = async (e) => {
             }); 
 
              success="User created now you can login"
+              window.location.replace('login.html')
 
             }else{
                 errMessage="Password not match";
             }
-         }
-
-        
-console.log(errMessage);
+         }       
 error.innerHTML=errMessage;
 success.innerHTML= success;
    
