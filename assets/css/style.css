@@ -860,8 +860,7 @@ body{
 
 }
  
-.blog-container {
-    margin-top: 75px; 
+.blog-container { 
     flex-wrap: wrap;
     column-gap: 40px;
     row-gap: 40px;
@@ -916,6 +915,22 @@ body{
     padding: 0px;
 }
 
+
+@media screen and (max-width: 900px) {
+    .blog .blog-container .card .white-background h4 {
+    font-size: 20px;
+    }
+
+    .blog .blog-container .card .white-background p {
+        font-size: 12px;
+    }
+    .blog .blog-container .card .white-background .card-header {
+        width: 100%;
+    }
+        .blog-container {
+            width: 100%;
+        }
+}
 
 .blog .blog-container .card .white-background .card-footer{
 display: flex;

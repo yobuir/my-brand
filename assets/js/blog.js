@@ -42,7 +42,7 @@ const renderPosts= async () => {
                     </a>
                 </div> 
                 <div class="card-header"
-                    style="background-image:url('${post.image};background-size:cover;background-repeat: no-repeat;">
+                    style="background-image:url('${post.image}');background-size:cover;background-repeat: no-repeat;">
                 </div>
                 
             </div> 
