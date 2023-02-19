@@ -13,15 +13,20 @@ const createUser = async (e) => {
              errMessage="No valid data";
         }else{  
         	let data=await fetch ('https://fair-lime-beetle-toga.cyclic.app/users');
-        	response=await data.json(data);
-        	// console.log(response);
-        	let userLogged=response.filter(user =>user.email == email && user.password == password);
-        	if (JSON.stringify(userLogged) !== []) {
-        		// console.log(userLogged);
-                sessionStorage.setItem("loggedUser",JSON.stringify(userLogged));
-              
-                errMessage="";
-                window.location.replace('home.html')
+        	response=await data.json(data); 
+        	let userLogged=response.filter(user =>user.email == email); 
+        	if (JSON.stringify(userLogged) !== []) { 
+				if(userLogged[0].password == password){
+					// console.log('1',userLogged);
+					sessionStorage.setItem("loggedUser",JSON.stringify(userLogged));
+				
+					errMessage="";
+					window.location.replace('blog.html');
+				}else{
+					errMessage="Check password and try again.";
+
+				}
+        	
         	}else{ 
         		errMessage="user not found";
         		}

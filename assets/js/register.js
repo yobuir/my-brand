@@ -38,7 +38,7 @@ const createUser = async (e) => {
             }
          }       
 error.innerHTML=errMessage;
-success.innerHTML= success;
+// success.innerHTML= success;
    
 }
 
