@@ -1,8 +1,6 @@
-var dropDown= document.getElementById("drop-down");  
-// let loginScreen=document.getElementById("loginScreen");
+var dropDown= document.getElementById("drop-down");   
 let name=document.getElementById('name');
-let profile=document.getElementById("profile");
-// loginScreen.display="none";
+let profile=document.getElementById("profile"); 
 
 function ShowDropDown (){  
     if ( dropDown.style.display == 'block'){
@@ -22,9 +20,10 @@ function userAuth( ) {
          console.log(loggUser);
           // loginScreen.display="none";
      }else{
-          loginScreen.display="block";
+          // loginScreen.display="block";
           profile.display="none";
-          name.innerHTML="Login"
+          name.innerHTML="Login";
+          window.location.replace('../../blog.html');
      }
 }
  
