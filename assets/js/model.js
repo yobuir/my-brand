@@ -57,8 +57,6 @@ let postIdentifier= new URLSearchParams(window.location.search).get("id");;
 LoadComment(postIdentifier);  
 
 
- 
-
 const addComment= async() => {
       try {
          const commented={

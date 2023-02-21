@@ -23,6 +23,10 @@ try {
     let urlLikes= "https://fair-lime-beetle-toga.cyclic.app/likes?post_id="+postId;
     const postLike=await fetch(urlLikes);
     const likes=await  postLike.json();
+
+    let uriComment='https://fair-lime-beetle-toga.cyclic.app/comments?post_id='+postId;
+    let resComment=await fetch(uriComment);
+    let comments=await resComment.json();
  
     if (res.status == 404){
          content=`<div><h1>Not Found</h1></div>`;
@@ -35,7 +39,7 @@ try {
          }
          content+=`
             <div class="header">
-                <!--  <img src="${post.image}"> -->
+                <img src="${post.image}"> 
                 <p>${post.date}</p>
                 <h1>${post.title}</h1>
             </div>
@@ -49,7 +53,7 @@ try {
                                 ${likedByLogged.length != 0? '<i class="bi bi-heart-fill"></i>':'<i class="bi bi-heart"></i>'}
                                      ${likes.length} 
                                 </form>
-                                <div class="" id="comment_button" onclick="openModel(${post.id})"><i class="bi bi-chat-square-text"></i> 2423</div>
+                                <div class="" id="comment_button" onclick="openModel(${post.id})"><i class="bi bi-chat-square-text"></i> ${comments.length}</div>
                             </div>
                         </div>
                     </div> 
