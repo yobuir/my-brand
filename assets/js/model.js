@@ -5,8 +5,8 @@ const comment_content=document.getElementById('comment_content');
 // console.log(comment_content);
 let contentCommentList='';
 let comment_form=document.getElementById('comment_form');
-
-
+let errorDiv=document.getElementById('errorDiv');
+let successDiv=document.getElementById('successDiv');
 modelBox.style.display="none";
 const userLg =  sessionStorage.getItem("loggedUser");
 const Authuser =JSON.parse(userLg);
@@ -57,23 +57,29 @@ let postIdentifier= new URLSearchParams(window.location.search).get("id");;
 LoadComment(postIdentifier);  
 
 
-
-
-
+ 
 
 const addComment= async() => {
-    const commented={
-        comment:comment_form.comment.value,
-        post_id:postIdentifier, 
-        user_id:Authuser[0].id,
-        date:Date()
-    }
-    await fetch('https://fair-lime-beetle-toga.cyclic.app/comments?post_id=',{
-        method:'POST',
-        headers:{'content-type':'application/json'},
-        body:JSON.stringify(commented)
+      try {
+         const commented={
+            comment:comment_form.comment.value,
+            post_id:postIdentifier, 
+            user_id:Authuser[0].id,
+            date:Date()
+        }
+        await fetch('https://fair-lime-beetle-toga.cyclic.app/comments',{
+            method:'POST',
+            headers:{'content-type':'application/json'},
+            body:JSON.stringify(commented)
 
-    });
+        });
+        comment_form.comment.value="";
+        successDiv.innerHTML="Comment added successfully";
+        
+      } catch (error) {  
+            errorDiv.innerHTML="Comment not added ";
+        }  
+   
 };
 
 comment_form.addEventListener("submit",function (event) {
