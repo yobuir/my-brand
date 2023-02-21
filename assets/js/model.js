@@ -92,7 +92,7 @@ comment_form.addEventListener("submit",function (event) {
 let  openModel = (id) =>{  
     modelBox.style.display="block"; 
     if (Authuser === null) {
-           comment_form.innerHTML="You need to be logged in first. <a href='login.html'>login</a>/ <a href='signup.html'>Signup</a>";
+           comment_form.innerHTML="You need to be logged in first. <span><a href='login.html'>login</a> or <a href='signup.html'>Signup</a></span>";
     }else{
      
     }

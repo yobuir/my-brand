@@ -60,6 +60,7 @@ body{
     transition: 0.4s;
     justify-content:space-between;
     width: 100%; 
+    z-index: 1;
 }
 
 
@@ -721,6 +722,7 @@ body{
     min-width: 200px; 
     max-width: 200px;
     box-shadow: -22px 28px 0px 0px var(--gray);
+    
 
 }
 
@@ -844,7 +846,7 @@ body{
     flex-wrap: wrap;
     display: flex;
     gap: 10px;
-    margin-bottom: 165px;
+    margin-bottom: 165px; 
 }
 
 
@@ -1177,6 +1179,7 @@ padding: 5px;
     right: 0;
     transition: 0.4s;
     flex-direction: column;
+    z-index: 2;
 }
 
 
