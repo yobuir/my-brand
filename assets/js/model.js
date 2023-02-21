@@ -8,20 +8,13 @@ let comment_form=document.getElementById('comment_form');
 
 
 modelBox.style.display="none";
-let user =  sessionStorage.getItem("loggedUser");
-let loggUser =JSON.parse(user);
- 
+const userLg =  sessionStorage.getItem("loggedUser");
+const Authuser =JSON.parse(userLg);
+console.log(Authuser);
 let postIdentifier= new URLSearchParams(window.location.search).get("id");;
 
-// const addComment= () => {
-//     const commented={
-//         comment:comment_form.comment.value,
-//         post_id:postIdentifier, 
-//         user_id:loggUser[0].id,
-//         date:Date()
-//     }
 
-// }
+
     const LoadComment = async(id) => {
       try {
         let uri='https://fair-lime-beetle-toga.cyclic.app/comments?post_id='+id;
@@ -63,9 +56,44 @@ let postIdentifier= new URLSearchParams(window.location.search).get("id");;
 
 LoadComment(postIdentifier);  
 
+
+
+
+
+
+const addComment= async() => {
+    const commented={
+        comment:comment_form.comment.value,
+        post_id:postIdentifier, 
+        user_id:Authuser[0].id,
+        date:Date()
+    }
+    await fetch('https://fair-lime-beetle-toga.cyclic.app/comments?post_id=',{
+        method:'POST',
+        headers:{'content-type':'application/json'},
+        body:JSON.stringify(commented)
+
+    });
+};
+
+comment_form.addEventListener("submit",function (event) {
+    event.preventDefault();
+    addComment();  
+});
+
+
+
+
+
 let  openModel = (id) =>{  
     modelBox.style.display="block"; 
+    if (Authuser === null) {
+           comment_form.innerHTML="You need to be logged in first. <a href='login.html'>login</a>/ <a href='signup.html'>Signup</a>";
+    }else{
+     
+    }
 }
+
 
 
 function closeModel (){ 
