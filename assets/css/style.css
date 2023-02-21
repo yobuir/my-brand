@@ -1248,19 +1248,21 @@ padding: 5px;
   .model-box .model-footer .comment .header{
     display: flex;
     justify-content: space-between;
+    width: 100%;
   }
 
 .model-box .model-footer .comment .header .profile{
-    display: flex;
-    flex-grow: 1; 
-    /* background-color: red; */
+    display: flex;  
+    width: 100%;
     column-gap: 10px;
 
 }
 
 .model-box .model-footer .comment .header .image {
-width: 50px;
-height: 50px;
+min-width: 50px;
+min-height: 50px;
+max-width: 50px;
+max-height: 50px;
 }
 .model-box .model-footer .comment .header .image img{
 width: 100%;
