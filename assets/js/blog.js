@@ -13,7 +13,8 @@ if (loggUser != null) {
 // view list of posts
 
 const renderPosts= async () => {
-    let url='http://localhost:3000/posts';
+    let url='https://fair-lime-beetle-toga.cyclic.app/posts';
+    
     const res=await fetch(url);
     const posts=await res.json();
     // console.log(posts);
