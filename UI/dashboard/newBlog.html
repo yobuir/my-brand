@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="style/dashboard.css">
 </head>
 
-<body>
+<body onload="userAuth()">
+    <!-- <div class="loginScreen" id="loginScreen"><a href="login.html">Login required</a></div>  -->
     <div class="container">
         <div class="row">
             <nav class="Navbar Dashboard" id="Dashboard">
@@ -48,11 +49,14 @@
 
                         </div>
                         <div class="" style="position:relative">
-                            <div class="profile" onclick="ShowDropDown()" style="cursor:pointer">
-                                <div class="image">
-                                    <img src="images/IMG-20220203-WA0001.jpg">
+                            <div class="profile" onclick="ShowDropDown()" style="cursor:pointer" id="profile">
+                                <div class="image"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg>
                                 </div>
-                                <div class="name">Yobu ir</div>
+                                <div class="name" id="name"> </div>
                         
                             </div>
                             <div class="drop-down" id="drop-down">
@@ -76,10 +80,10 @@
                     </div>
                     <div class="contact-container">
                         <div class="contact-inner-right">
-                            <form class="form" id="blogForm">
-                                <div id="error" style="color:red ;margin: 10px;"></div>
-                                <div id="success" style="background-color: green;color: white;margin-bottom: 10px;">
-                                </div>
+                            <div id="error" style="color:red ;margin: 10px;"></div>
+                            <div id="success" style="background-color: green;color: white;margin-bottom: 10px;">
+                            </div>
+                            <form class="form" id="blogForm"> 
                                 <div class="inputs">
                                     <label>Title</label>
                                     <input type="text" id="blog_title" placeholder="title">
@@ -91,7 +95,7 @@
                                     <textarea id="blog_body" placeholder="Body"></textarea>
                                     
                                 </div>
-                                <button onclick="addBlog()">Submit</button>
+                                <button>Submit</button>
                             </form>
                         </div>
                     </div>
@@ -102,6 +106,7 @@
     </div>
     <script src="js/navbar.js"></script>
     <script src="js/dropdown.js"></script>
+    <script src="js/blogCreate.js"></script>
 </body>
 
 </html>

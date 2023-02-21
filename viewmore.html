@@ -22,12 +22,12 @@
                     </div>
                     <!-- desktop -->
                     <ul class="Nav_items " id="desktop">
-                        <li><a href="index.html" >Home</a></li>
+                        <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="index.html#About">About</a></li>
                         <li><a href="index.html#skills">Skills</a></li>
                         <li><a href="index.html#services">services</a></li>
                         <li><a href="index.html#Portofolio">Portofolio</a></li>
-                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="index.html#Contact">Contact</a></li>
                         <li><a href="login.html">Login</a></li>
                     </ul>
@@ -98,22 +98,41 @@
                 <span class="span4"></span>
             </a>
         </nav>
-        <div class="error" id="errorBox"></div>
-        <div class="success"></div>
-        <main>  
-            <p class="loggedUser" id="loggedUser"></p> 
-            <section class="blog" id="Blog">  
-                <div class="blog-container" id="blogcontainer">   
-                </div> 
-            </section>
-        </main>
+        
+        <section class="blogOpen" id="blogOpen"> 
+        </section> 
+
+            <div class="model-box" id="model-box">
+                <div class="model-header">
+                    <div class="model-title">
+                        <h3> Comments</h3>
+                    </div>
+                    <div class="model-close" id="closeButton" onclick="closeModel()">
+                        <i class="bi bi-x-lg"></i>
+                    </div>
+                </div>
+                <div class="model-body"> 
+                    <div class="form">
+                        <div id="errorDiv"></div>
+                        <div class="successDiv" id="successDiv"></div>
+                        <form id="comment_form">
+                           
+                            <textarea class="" name="comment" placeholder="Write comment"></textarea>
+                            <button>Comment</button>
+                        </form>
+                    </div> 
+                </div>
+                <div class="model-footer" id="comment_content">  
+                </div>
+            </div> 
     </div>
     <footer class="footer ">
         Made by Ir Yobu ❤
     </footer> 
+    <script src="./assets/js/model.js"></script>
     <script src="./assets/js/js.js"></script>
     <script src="./assets/js/navbar.js"></script>
-    <script src="./assets/js/blog.js"></script> 
+    <script src="./assets/js/singleBlog.js"></script>
 </body>
 
 </html>

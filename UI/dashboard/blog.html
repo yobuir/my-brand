@@ -11,12 +11,13 @@
     
 </head>
 
-<body>
+<body onload="userAuth()">
+    <!-- <div class="loginScreen" id="loginScreen"><a href="login.html">Login required</a></div>  -->
     <div class="container">
         <div class="row">
             <nav class="Navbar Dashboard" id="Dashboard">
                 <a href="javascript:void(0)" onclick="closeNavbar()" id="closeButton">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
                         viewBox="0 0 16 16">
                         <path
                             d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
@@ -52,11 +53,14 @@
                             </a> 
                         </div> 
                         <div class="" style="position:relative">
-                            <div class="profile" onclick="ShowDropDown()" style="cursor:pointer">
-                                <div class="image">
-                                    <img src="images/IMG-20220203-WA0001.jpg">
+                            <div class="profile" onclick="ShowDropDown()" style="cursor:pointer" id="profile"> 
+                                 <div class="image"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg>
                                 </div>
-                                <div class="name">Yobu ir</div>
+                                <div class="name" id="name"> </div>
                         
                             </div>
                             <div class="drop-down" id="drop-down">
@@ -79,50 +83,21 @@
                         <a href="newBlog.html" class="btn ">New blog</a>
                     </div>
                     <div class="blog-container" id="blogcontainer"> 
-                        <div class="card">
-                            <a href="starrating.html">
-                                <div class="car-header"
-                                    style="background-image:url('https://images.unsplash.com/photo-1633613286991-611fe299c4be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');background-size:cover;background-repeat: no-repeat;">
-                                </div>
-                            </a> 
-                            <div class="card-body" style="word-wrap: break-word;">
-                                <p><a href="starrating.html">Design</a> August 20, 2022</p>
-                                <h4> Star Ratings With Very Little CSS</h4>
-                            </div>
-                            <div class="card-footer">
-                                <div id="comment_button" onclick="openModel()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                    <path fill-rule="evenodd"
-                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                </svg>
-                            </div>
-                                <div style="color:red"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                                </svg></div>
-                            </div>
-                        </div>  
-                </section>
-
-
+                        
+                </section> 
                 <!-- model box -->
                 <div class="model-box" id="model-box">
                     <div class="model-header">
-                        <div class="model-title">
-                            <h3> The secret ingredient to telling a good story.</h3>
-                            <p>Updating content</p>
+                        <div class="model-title" id="model-title"> 
                         </div>
-                        <div class="model-close" id="closeButton" onclick="closeModel()">
-                            <i class="bi bi-x-lg"></i>
+                        <div class="model-clos" id="closeButto" onclick="closeModel()">
+                            <i class="bi bi-x-lg"></i> close
                         </div>
                     </div>
                     <div class="model-body">
+                        <div id="error_message"></div>
                         <div class="form">
-                            <form>
+                            <form class="form" id="blogForm"> 
                                 <label>Title</label>
                                 <input type="text" id="blog_title" placeholder="title">
                                 <label>Date</label>
@@ -130,8 +105,8 @@
                                 <label>Cover image</label>
                                 <input type="url" id="blog_image" placeholder="image url">
                                 <label>Description</label>
-                                <textarea id="blog_body" placeholder="Body"></textarea>
-                                <button>Update</button>
+                                <textarea id="blog_body" placeholder="Body"></textarea> 
+                                <button >Submit</button>
                             </form>
                         </div>
                     </div> 
@@ -143,6 +118,8 @@
     <script src="js/navbar.js"></script>
     <script src="js/model.js"></script>
     <script src="js/dropdown.js"></script>
+    <script src="js/blogList.js"></script> 
+    <script src="js/delete.js"></script>
 </body>
 
 </html>

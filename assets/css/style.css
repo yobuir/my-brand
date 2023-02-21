@@ -860,8 +860,7 @@ body{
 
 }
  
-.blog-container {
-    margin-top: 75px; 
+.blog-container { 
     flex-wrap: wrap;
     column-gap: 40px;
     row-gap: 40px;
@@ -917,6 +916,22 @@ body{
 }
 
 
+@media screen and (max-width: 900px) {
+    .blog .blog-container .card .white-background h4 {
+    font-size: 20px;
+    }
+
+    .blog .blog-container .card .white-background p {
+        font-size: 12px;
+    }
+    .blog .blog-container .card .white-background .card-header {
+        width: 100%;
+    }
+        .blog-container {
+            width: 100%;
+        }
+}
+
 .blog .blog-container .card .white-background .card-footer{
 display: flex;
 flex-wrap: wrap;
@@ -931,7 +946,9 @@ display: flex;
 justify-content: space-around;
 column-gap: 20px;
 }
-
+.blog .blog-container .card .white-background .card-footer .icon-footer i{
+    cursor: pointer;
+}
 .blogOpen{
     margin-top: 30px;
     width: 90%;
@@ -962,6 +979,11 @@ column-gap: 20px;
     display: flex;
     gap: 30px;
     justify-items: end;
+}
+
+.icon-footer i{
+    cursor: pointer;
+    color: #10162F; 
 }
 
 
@@ -1078,14 +1100,23 @@ height: 30px;
 width: 30px;
 padding: 5px; 
 }
-.addres>.icon svg{
-    width: 30px;
+.addres .icon svg{
+    width: 30px; 
     height: 30px;
 }
-.addres > .icon {
+.addres .icon {
     margin-top: 20px;
 }
+.addres .icon  path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill:#ffff;
+}
 
+.addres .iconcircle {
+    stroke:#ffff;
+    stroke-width: 1;
+}
 .contact-inner-right input { 
     height: 34px;
     border:1px solid var(--dar-blue);
@@ -1121,7 +1152,13 @@ padding: 5px;
     color: var(--white);
 }
 
- 
+ .loggedUser {
+    margin-top: 60px;
+    background: white;
+    width: fit-content;
+    padding: 6px;
+    border-radius: 19px;
+ }
 
 /* exptional */
 
@@ -1129,7 +1166,7 @@ padding: 5px;
 .model-box{
     background: #fff;
     display: flex;
-    padding: 20px;
+    padding: 20px 20px 40px 20px;
     position: fixed;
     display: none;
     top: 0;
@@ -1203,27 +1240,29 @@ padding: 5px;
 
  .model-box .model-footer .comment{
     width: 100%;
-    background-color: ;
+    background-color:#f5f5f5 ;
     display: flex;
-    margin-top:40px ;
+    margin-top:20px ;
     flex-direction: column;
  }
   .model-box .model-footer .comment .header{
     display: flex;
     justify-content: space-between;
+    width: 100%;
   }
 
 .model-box .model-footer .comment .header .profile{
-    display: flex;
-    flex-grow: 1; 
-    /* background-color: red; */
+    display: flex;  
+    width: 100%;
     column-gap: 10px;
 
 }
 
 .model-box .model-footer .comment .header .image {
-width: 50px;
-height: 50px;
+min-width: 50px;
+min-height: 50px;
+max-width: 50px;
+max-height: 50px;
 }
 .model-box .model-footer .comment .header .image img{
 width: 100%;
