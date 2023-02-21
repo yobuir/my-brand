@@ -30,7 +30,7 @@ try {
     }else{  
          if (loggUser != null) { 
              likedByLogged=likes.filter(like => like.user_id === loggUser[0].id);
-             console.log(likedByLogged);
+            //  console.log(likedByLogged);
          } else{
             // console.log("User")
          }
