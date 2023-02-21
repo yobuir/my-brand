@@ -40,8 +40,6 @@ let  openModel = async(id) =>{
 
 
 
-
-
 let UpdatePost = async (e) => {
 
     e.preventDefault();  
