@@ -26,5 +26,8 @@ function userAuth( ) {
           window.location.replace('../../blog.html');
      }
 }
+const logout = () => {
+     
+}
  
 

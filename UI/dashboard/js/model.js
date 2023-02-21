@@ -24,8 +24,7 @@ let  openModel = async(id) =>{
         let uri='https://fair-lime-beetle-toga.cyclic.app/posts/'+id;
         let res=await fetch(uri);
         let post=await res.json(); 
-        model_title.innerHTML=post.title;
-
+        model_title.innerHTML=post.title; 
         blogForm.blog_title.value=post.title;
          blogForm.blog_date.value=post.date;
          blogForm.blog_image.value=post.image;
