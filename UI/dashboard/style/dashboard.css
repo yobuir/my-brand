@@ -187,9 +187,7 @@ h3{
     flex-direction: column;
     }
 
-.main .header {
-    /* position:sticky;top:0; */
-}
+ 
 .main .header .row{
     display: flex;  
     justify-content: space-between;

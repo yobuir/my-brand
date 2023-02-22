@@ -29,7 +29,8 @@ function userAuth( ) {
 
 
 const logout = () => {
-     
+   sessionStorage.removeItem("loggedUser");  
+   window.location.replace('blog.html');
 }
  
 
