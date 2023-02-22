@@ -12,24 +12,34 @@ const createUser = async (e) => {
         if ( email ===  "" || password ===  "") {
              errMessage="No valid data";
         }else{  
-        	let data=await fetch ('https://fair-lime-beetle-toga.cyclic.app/users');
-        	response=await data.json(data); 
-        	let userLogged=response.filter(user =>user.email == email); 
-        	if (JSON.stringify(userLogged) !== []) { 
-				if(userLogged[0].password == password){
-					// console.log('1',userLogged);
-					sessionStorage.setItem("loggedUser",JSON.stringify(userLogged));
-				
-					errMessage="";
-					window.location.replace('blog.html');
-				}else{
-					errMessage="Check password and try again.";
 
-				}
+			try {
+				let data=await fetch ('https://fair-lime-beetle-toga.cyclic.app/users');
+				response=await data.json(data); 
+				let userLogged=response.filter(user =>user.email == email); 
+				if (JSON.stringify(userLogged) !== []) { 
+					if(userLogged[0].password == password){
+						// console.log('1',userLogged);
+						sessionStorage.setItem("loggedUser",JSON.stringify(userLogged));
+					
+						errMessage="";
+						window.location.replace('blog.html');
+					}else{
+						errMessage="Check password and try again.";
+
+					}
+				
+				}else{ 
+					errMessage="user not found";
+					}
+
+					
+			} catch (error) {
+				console.log(error);
+				errMessage=error;
+			}
         	
-        	}else{ 
-        		errMessage="user not found";
-        		}
+
         	}
 
          
