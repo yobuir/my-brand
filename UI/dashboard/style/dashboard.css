@@ -65,6 +65,7 @@ h3{
     transition: 0.4s; 
     top: 0;
     width:200px;
+    z-index: 1;
     height: 100vh; 
     position: sticky;
     box-shadow: 5px 9px 11px -3px rgba(0, 0, 0, 0.1);
@@ -522,10 +523,20 @@ textarea {
     border: 1px solid var(--blue);
 }
 
-.model-box .model-body .form form button:hover {
+.model-box .model-body .form form button:hover{
     color: var(--blue);
     background: var(--white);
     border: 1px solid var(--blue);
 
 }
- 
+#UserUpdateForm button{
+border: 1px solid var(--blue);
+transition: 0.4s;
+}
+#UserUpdateForm button:hover {
+     color: var(--blue);
+     background: var(--white); 
+     cursor: pointer;
+     border: 1px solid var(--blue);
+
+ }

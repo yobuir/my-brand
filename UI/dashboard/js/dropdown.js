@@ -1,7 +1,7 @@
 var dropDown= document.getElementById("drop-down");   
 let name=document.getElementById('name');
 let profile=document.getElementById("profile"); 
-
+let Wmessage=document.getElementById("Wmessage");
 function ShowDropDown (){  
     if ( dropDown.style.display == 'block'){
          dropDown.style.display="none";
@@ -18,7 +18,7 @@ function userAuth( ) {
      if (loggUser != null) {
        name.innerHTML=loggUser[0].name;  
          console.log(loggUser);
-          // loginScreen.display="none";
+         Wmessage.innerHTML=`<h3>Hi! ${loggUser[0].name} welcome back !</h3>`
      }else{
           // loginScreen.display="block";
           profile.display="none";
