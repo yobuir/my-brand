@@ -12,7 +12,7 @@ const createUser = async (e) => {
         if ( email ===  "" || password ===  "") {
              errMessage="No valid data";
         }else{  
-        	let data=await fetch ('https://fair-lime-beetle-toga.cyclic.app/users');
+        	let data=await fetch ('https://my-backend-y2ud.onrender.com/users');
         	response=await data.json(data); 
         	let userLogged=response.filter(user =>user.email == email); 
         	if (JSON.stringify(userLogged) !== []) { 

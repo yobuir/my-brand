@@ -21,7 +21,7 @@ let  openModel = async(id) =>{
     console.log(id);
 
     try {
-        let uri='https://fair-lime-beetle-toga.cyclic.app/posts/'+id;
+        let uri='https://my-backend-y2ud.onrender.com/posts/'+id;
         let res=await fetch(uri);
         let post=await res.json(); 
         model_title.innerHTML=post.title; 
@@ -48,7 +48,7 @@ let UpdatePost = async (e) => {
         "date": blogForm.blog_date.value
     }
      try {
-        await fetch('https://fair-lime-beetle-toga.cyclic.app/posts/'+identifier, {
+        await fetch('https://my-backend-y2ud.onrender.com/posts/'+identifier, {
             method: 'PUT',
             body: JSON.stringify(post),
             headers: { 'Content-Type': 'application/json' }

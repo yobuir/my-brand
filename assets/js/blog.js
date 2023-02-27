@@ -13,14 +13,14 @@ if (loggUser != null) {
 // view list of posts
 
 const renderPosts= async () => {
-    let url='https://fair-lime-beetle-toga.cyclic.app/posts';
+    let url='https://my-backend-y2ud.onrender.com/posts';
     
     const res=await fetch(url);
     const posts=await res.json();
     // console.log(posts);
 
     let content= '';
-    posts.forEach(post => {
+    posts.forEach(post => { 
         content+=` 
           <div class="card" style="word-wrap: break-word;">
             <div class="white-background"> 
@@ -34,10 +34,10 @@ const renderPosts= async () => {
                             </div>
                             <div class="icon-footer">
                                 <div>
-                                <i class="bi bi-heart"></i> 789
+                               <!-- <i class="bi bi-heart"></i> -->
                                 <!-- <i class="bi bi-heart-fill"></i> -->
                                 </div>
-                                <div><i class="bi bi-chat-square-text"></i> 2423</div>
+                                <!-- <div><i class="bi bi-chat-square-text"></i> 2423</div> -->
                             </div>
                         </div>
                     </a>

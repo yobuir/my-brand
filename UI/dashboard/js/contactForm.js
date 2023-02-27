@@ -5,7 +5,7 @@ let content= '';
 const LoadComments=async () => {
     try {
 
-        let data=await fetch ('https://fair-lime-beetle-toga.cyclic.app/contacts');
+        let data=await fetch ('https://my-backend-y2ud.onrender.com/contacts');
         response=await data.json(data);
         response.forEach(contact => {
          
@@ -47,7 +47,7 @@ LoadComments()
 
 
 const deleteComment = async (id) =>{
- let data=await fetch (`https://fair-lime-beetle-toga.cyclic.app/contacts/${id}`,{
+ let data=await fetch (`https://my-backend-y2ud.onrender.com/contacts/${id}`,{
     method: 'DELETE',
  }); 
     window.location.replace('./comments.html');

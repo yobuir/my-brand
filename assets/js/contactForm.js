@@ -25,7 +25,7 @@
                     } 
                     try {
 
-                          const requestSent=  await fetch('https://fair-lime-beetle-toga.cyclic.app/contacts',{
+                          const requestSent=  await fetch('https://my-backend-y2ud.onrender.com/contacts',{
                             method: 'POST',
                             headers:{'content-type': 'application/json'},
                             body:JSON.stringify(messageContent)
