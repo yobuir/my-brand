@@ -18,7 +18,7 @@ const createPost = async (e) => {
         "date": blog_date
     }
 
-    await fetch('https://my-backend-y2ud.onrender.com/posts', {
+    await fetch('http://localhost:3000/posts', {
         method: 'POST',
         body: JSON.stringify(post),
         headers: { 'Content-Type': 'application/json' }
