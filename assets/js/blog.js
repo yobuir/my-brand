@@ -13,14 +13,17 @@ if (loggUser != null) {
 // view list of posts
 
 const renderPosts= async () => {
-    let url='https://my-backend-y2ud.onrender.com/posts';
+    let url='https://mybrandbackend.up.railway.app/api/posts/all';
     
     const res=await fetch(url);
-    const posts=await res.json();
-    // console.log(posts);
+    const result=await res.json();
+    const posts=result.data;
+    console.log(posts);
 
     let content= '';
-    posts.forEach(post => { 
+
+    if(posts.lenght <1){
+         posts.forEach(post => { 
         content+=` 
           <div class="card" style="word-wrap: break-word;">
             <div class="white-background"> 
@@ -51,6 +54,18 @@ const renderPosts= async () => {
         
         `       
     });
+    }else{
+         content+=` 
+          <div class="card" style="word-wrap: break-word;">
+            <div class="white-background"> 
+                <div class="card-body" style="word-wrap: break-word;">
+                <h4>No blog post yet </h4>
+                </div> 
+            <div>
+        </div>
+                 `;
+    }
+   
 
         blogcontainer.innerHTML=content;
 }
