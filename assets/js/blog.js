@@ -13,14 +13,17 @@ if (loggUser != null) {
 // view list of posts
 
 const renderPosts= async () => {
-    let url='https://fair-lime-beetle-toga.cyclic.app/posts';
+    let url='https://mybrandbackend.up.railway.app/api/posts/all';
     
     const res=await fetch(url);
-    const posts=await res.json();
-    // console.log(posts);
+    const result=await res.json();
+    const posts=result.data;
+    console.log(posts);
 
     let content= '';
-    posts.forEach(post => {
+
+    if(posts.lenght <1){
+         posts.forEach(post => { 
         content+=` 
           <div class="card" style="word-wrap: break-word;">
             <div class="white-background"> 
@@ -34,10 +37,10 @@ const renderPosts= async () => {
                             </div>
                             <div class="icon-footer">
                                 <div>
-                                <i class="bi bi-heart"></i> 789
+                               <!-- <i class="bi bi-heart"></i> -->
                                 <!-- <i class="bi bi-heart-fill"></i> -->
                                 </div>
-                                <div><i class="bi bi-chat-square-text"></i> 2423</div>
+                                <!-- <div><i class="bi bi-chat-square-text"></i> 2423</div> -->
                             </div>
                         </div>
                     </a>
@@ -51,6 +54,18 @@ const renderPosts= async () => {
         
         `       
     });
+    }else{
+         content+=` 
+          <div class="card" style="word-wrap: break-word;">
+            <div class="white-background"> 
+                <div class="card-body" style="word-wrap: break-word;">
+                <h4>No blog post yet </h4>
+                </div> 
+            <div>
+        </div>
+                 `;
+    }
+   
 
         blogcontainer.innerHTML=content;
 }

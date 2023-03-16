@@ -16,15 +16,15 @@ try {
     
     const postId= new URLSearchParams(window.location.search).get("id");
 
-    let uri='https://fair-lime-beetle-toga.cyclic.app/posts/'+postId;
+    let uri='https://my-backend-y2ud.onrender.com/posts/'+postId;
     const res=await fetch(uri);
     const post=await res.json();
  
-    let urlLikes= "https://fair-lime-beetle-toga.cyclic.app/likes?post_id="+postId;
+    let urlLikes= "https://my-backend-y2ud.onrender.com/likes?post_id="+postId;
     const postLike=await fetch(urlLikes);
     const likes=await  postLike.json();
 
-    let uriComment='https://fair-lime-beetle-toga.cyclic.app/comments?post_id='+postId;
+    let uriComment='https://my-backend-y2ud.onrender.com/comments?post_id='+postId;
     let resComment=await fetch(uriComment);
     let comments=await resComment.json();
  
@@ -39,7 +39,9 @@ try {
          }
          content+=`
             <div class="header">
-                <img src="${post.image}"> 
+                <div class="img-cover" style="background-image:url('${post.image}')">
+            
+                </div> 
                 <p>${post.date}</p>
                 <h1>${post.title}</h1>
             </div>
@@ -74,8 +76,7 @@ renderingSinglePost();
 
 let likePost= async (identifier) => {
     try {
-
-        let urlLikes= "https://fair-lime-beetle-toga.cyclic.app/likes/";
+        let urlLikes= "https://my-backend-y2ud.onrender.com/likes/";
         const postLike=await fetch(urlLikes);
         const likes=await  postLike.json();
     if (loggUser != null) { 
@@ -90,7 +91,7 @@ let likePost= async (identifier) => {
                 
                 }
             
-                    const url="https://fair-lime-beetle-toga.cyclic.app/likes";
+                    const url="https://my-backend-y2ud.onrender.com/likes";
                     await fetch(url, {
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify(like),
@@ -100,7 +101,7 @@ let likePost= async (identifier) => {
 
         
             }else{  
-                const url="https://fair-lime-beetle-toga.cyclic.app/likes/"+checkLikes[0].id;
+                const url="https://my-backend-y2ud.onrender.com/likes/"+checkLikes[0].id;
                     await fetch(url, { 
                         method: 'DELETE'
 

@@ -8,7 +8,7 @@ let  UserLogged = async() =>{
   
     if(loggUser != null) { 
         try {
-            let uri='https://fair-lime-beetle-toga.cyclic.app/users/'+loggUser[0].id;
+            let uri='https://my-backend-y2ud.onrender.com/users/'+loggUser[0].id;
             let res=await fetch(uri);
             let user=await res.json();  
 
@@ -37,7 +37,7 @@ let updateUser = async (e) => {
         "id": 2
     }
      try {
-        await fetch('https://fair-lime-beetle-toga.cyclic.app/users/'+loggUser[0].id, {
+        await fetch('https://my-backend-y2ud.onrender.com/users/'+loggUser[0].id, {
             method: 'PUT',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json'}
@@ -47,5 +47,4 @@ let updateUser = async (e) => {
         console.log(error);
     }    
 }
-
 userUpdateForm.addEventListener('submit', updateUser); 

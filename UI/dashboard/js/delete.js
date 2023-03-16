@@ -1,5 +1,5 @@
 const DeleteBlog = async (id) => {
-    let uri='https://fair-lime-beetle-toga.cyclic.app/posts/'+id;
+    let uri='https://my-backend-y2ud.onrender.com/posts/'+id;
     const res=await fetch(uri, {
         method : "DELETE"
     });

@@ -17,7 +17,7 @@ let postIdentifier= new URLSearchParams(window.location.search).get("id");;
 
     const LoadComment = async(id) => {
       try {
-        let uri='https://fair-lime-beetle-toga.cyclic.app/comments?post_id='+id;
+        let uri='https://my-backend-y2ud.onrender.com/comments?post_id='+id;
         let res=await fetch(uri);
         let comments=await res.json();   
         comments.forEach(comment => {
@@ -65,7 +65,7 @@ const addComment= async() => {
             user_id:Authuser[0].id,
             date:Date()
         }
-        await fetch('https://fair-lime-beetle-toga.cyclic.app/comments',{
+        await fetch('https://my-backend-y2ud.onrender.com/comments',{
             method:'POST',
             headers:{'content-type':'application/json'},
             body:JSON.stringify(commented)

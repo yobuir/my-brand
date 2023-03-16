@@ -25,7 +25,7 @@
                     } 
                     try {
 
-                          const requestSent=  await fetch('https://fair-lime-beetle-toga.cyclic.app/contacts',{
+                          const requestSent=  await fetch('https://mybrandbackend.up.railway.app/api/contacts/create',{
                             method: 'POST',
                             headers:{'content-type': 'application/json'},
                             body:JSON.stringify(messageContent)
@@ -35,9 +35,7 @@
                             document.getElementById("success").innerHTML=` Your response have been saved,  `+name;
                             document.getElementById("name").value=""; 
                             document.getElementById("email").value="";
-                            document.getElementById("message").value="";
-                      
-                     
+                            document.getElementById("message").value=""; 
                         
                     } catch (error) {
                         document.getElementById("error").innerHTML='FAILED...', error;
