@@ -24,14 +24,17 @@ const createUser = async (e) => {
                   "role": "user",
                   "date": Date()
             }
-             await fetch('https://my-backend-y2ud.onrender.com/users', {
+             await fetch('https://mybrandbackend.up.railway.app/api/users/create', {
                 method: 'POST',
-                body: JSON.stringify(user),
-                headers: { 'Content-Type': 'application/json' }
-            }); 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+                
+            }).then((res)=>{
+                console.log(res);
+            })
 
              success="User created now you can login"
-              window.location.replace('login.html')
+            //   window.location.replace('login.html')
 
             }else{
                 errMessage="Password not match";

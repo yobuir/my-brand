@@ -1294,3 +1294,8 @@ border-radius: 50%;
 .model-box .model-footer .comment .body p{
     color: var(--dark-gray);
 }
+
+
+.error{
+    color:red;
+}
