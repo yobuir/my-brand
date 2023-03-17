@@ -6,31 +6,34 @@ let errMessage="";
 const createUser = async (e) => {
     e.preventDefault();
 
-    const email= Form.email.value;
-    const password= Form.password.value; 
+	try {
 
-        if ( email ===  "" || password ===  "") {
-             errMessage="No valid data";
-        }else{  
-        	let data=await fetch ('https://my-backend-y2ud.onrender.com/users');
-        	response=await data.json(data); 
-        	let userLogged=response.filter(user =>user.email == email); 
-        	if (JSON.stringify(userLogged) !== []) { 
-				if(userLogged[0].password == password){
-					// console.log('1',userLogged);
-					sessionStorage.setItem("loggedUser",JSON.stringify(userLogged));
-				
-					errMessage="";
-					window.location.replace('blog.html');
-				}else{
-					errMessage="Check password and try again.";
 
+		const email= Form.email.value;
+		const password= Form.password.value; 
+		const user = {
+			"email":"demotest@gmail.com",
+  			"password":"test"
+		}
+
+			if ( email ===  "" || password ===  "") {
+				errMessage="No valid data";
+			}else{  
+
+				await fetch('https://mybrandbackend.up.railway.app/api/auth/login',{
+						method:'POST', 
+						body:JSON.stringify(user)
+
+					}).then((response)=>{
+						console.log(response);
+					});
 				}
-        	
-        	}else{ 
-        		errMessage="user not found";
-        		}
-        	}
+		
+	} catch (error) {
+		error.innerHTML=error; 
+		
+	}
+  
 
          
 error.innerHTML=errMessage; 

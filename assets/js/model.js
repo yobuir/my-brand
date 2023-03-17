@@ -13,13 +13,12 @@ const Authuser =JSON.parse(userLg);
 console.log(Authuser);
 let postIdentifier= new URLSearchParams(window.location.search).get("id");;
 
-
-
     const LoadComment = async(id) => {
       try {
-        let uri='https://my-backend-y2ud.onrender.com/comments?post_id='+id;
+        let uri='https://mybrandbackend.up.railway.app/api/comments/post/'+id;
         let res=await fetch(uri);
-        let comments=await res.json();   
+        let comments=await res.json();  
+        comments = comments.data;
         comments.forEach(comment => {
              contentCommentList+=` 
                   <div class="comment">
@@ -56,7 +55,6 @@ let postIdentifier= new URLSearchParams(window.location.search).get("id");;
 
 LoadComment(postIdentifier);  
 
-
 const addComment= async() => {
       try {
          const commented={
@@ -65,7 +63,7 @@ const addComment= async() => {
             user_id:Authuser[0].id,
             date:Date()
         }
-        await fetch('https://my-backend-y2ud.onrender.com/comments',{
+        await fetch('https://mybrandbackend.up.railway.app/api/comments/create',{
             method:'POST',
             headers:{'content-type':'application/json'},
             body:JSON.stringify(commented)

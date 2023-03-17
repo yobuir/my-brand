@@ -19,21 +19,20 @@ const renderPosts= async () => {
         
         const res=await fetch(url);
         const result=await res.json();
-        const posts=result.data;  
-        
+        const posts=result.data;      
 
-        if(posts.lenght <1){
+        if(posts.length != 0){
             posts.forEach(post => { 
             content+=` 
             <div class="card" style="word-wrap: break-word;">
                 <div class="white-background"> 
                     <div class="card-body" style="word-wrap: break-word;"> 
-                        <a href="viewmore.html?id=${post.id}">
+                        <a href="viewmore.html?id=${post._id}">
                             <h4> ${post.title}</h4>
                             <p>${post.body.slice(0,130)}</p>
                             <div class="card-footer">
                                 <div>
-                                    <small>${post.date}</small>
+                                    <small>${post.createdAt}</small>
                                 </div>
                                 <div class="icon-footer">
                                     <div>
