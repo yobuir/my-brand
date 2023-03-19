@@ -5,7 +5,7 @@ let user =  sessionStorage.getItem("loggedUser");
 let loggUser =JSON.parse(user);
  
 if (loggUser != null) {
-  loggedUser.innerHTML=loggUser[0].name;  
+  loggedUser.innerHTML=loggUser.name;  
 }
 
 

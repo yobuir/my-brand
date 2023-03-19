@@ -4,7 +4,7 @@ const blogcontainer=document.getElementById("blogcontainer");
 // view list of posts
 
 const renderPosts= async () => {
-    let uri='https://my-backend-y2ud.onrender.com/posts';
+    let uri='https://my-backend-y2ud.onrender.com/posts/';
     const res=await fetch(uri);
     const posts=await res.json();
     // console.log(posts);

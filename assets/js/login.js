@@ -1,41 +1,71 @@
-
 const Form=document.getElementById("Form");
 const error=document.getElementById("error");
 let errMessage="";  
+const baseUrl= 'https://mybrandbackend.up.railway.app/api';
 
-const createUser = async (e) => {
+const createUser =   (e) => {
     e.preventDefault();
-
 	try {
+		  const email= Form.email.value;
+			const password= Form.password.value; 
+			
+				if ( email ===  "" || password ===  "") {
+					errMessage="No valid data";
+				}else{  
+					console.log("Email", email, password);
+					const user = {
+							email: email,password: password
+					} 
+					axios.post( `${baseUrl}/auth/login`,{email,password})
+						.then(function (response) { 
+								Toastify({
+									text:`${response.data.message}`,
+									duration: 3000,  
+									close: true,
+									gravity: "top", // `top` or `bottom`
+									position: "right", // `left`, `center` or `right`
+									stopOnFocus: true, // Prevents dismissing of toast on hover
+									className:"dangerous", // 
+									onClick: function(){} // Callback after click
+									}).showToast();
+									sessionStorage.setItem("loggedUser",JSON.stringify(response.data.data));
+				
+							errMessage="";
+							window.location.replace('blog.html');
+							})
+							.catch(function (error) {
+
+								// console.log(error);  
+								Toastify({
+									text:`${error.message}`,
+									duration: 3000,  
+									close: true,
+									gravity: "top", // `top` or `bottom`
+									position: "right", // `left`, `center` or `right`
+									stopOnFocus: true, // Prevents dismissing of toast on hover
+									className:"dangerous", // 
+									onClick: function(){} // Callback after click
+									}).showToast();
+							});
 
 
-		const email= Form.email.value;
-		const password= Form.password.value; 
-		const user = {
-			"email":"demotest@gmail.com",
-  			"password":"test"
-		}
-
-			if ( email ===  "" || password ===  "") {
-				errMessage="No valid data";
-			}else{  
-
-				await fetch('https://mybrandbackend.up.railway.app/api/auth/login',{
-						method:'POST', 
-						body:JSON.stringify(user)
-
-					}).then((response)=>{
-						console.log(response);
-					});
-				}
-		
+					}  
+       
 	} catch (error) {
-		error.innerHTML=error; 
+		// console.log(error)  
+			Toastify({
+				text:`${error.message}`,
+				duration: 3000,  
+				close: true,
+				gravity: "top", // `top` or `bottom`
+				position: "right", // `left`, `center` or `right`
+				stopOnFocus: true, // Prevents dismissing of toast on hover
+				className:"dangerous", // 
+				onClick: function(){} // Callback after click
+				}).showToast();
 		
 	}
-  
-
-         
+    
 error.innerHTML=errMessage; 
    
 }
