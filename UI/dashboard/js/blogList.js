@@ -8,14 +8,14 @@ const baseUrl= 'https://mybrandbackend.up.railway.app/api';
 const renderPosts= async () => {
 
     try {
-         let uri=`${baseUrl}/posts/all`;
-    const res=await fetch(uri);
-    let posts=await res.json();
-    posts=posts.data; 
+        let uri=`${baseUrl}/posts/all`;
+        const res=await fetch(uri);
+        let posts=await res.json();
+        posts=posts.data; 
 
-    let content= '';
-    posts.forEach(post => {
-        content+=`
+        let content= '';
+        posts.forEach(post => {
+            content+=`
         
           <div class="card">
             <a href="viewmore.html?id=${post.id}">

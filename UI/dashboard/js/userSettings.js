@@ -4,19 +4,29 @@ let UserEmail=userUpdateForm.email.value;
 let user =  sessionStorage.getItem("loggedUser");
 let loggUser =JSON.parse(user);  
 
-let  UserLogged = async() =>{  
-  
+let  UserLogged = async() =>{   
     if(loggUser != null) { 
         try {
-            let uri='https://my-backend-y2ud.onrender.com/users/'+loggUser[0].id;
-            let res=await fetch(uri);
-            let user=await res.json();  
-
+            let uri='https://mybrandbackend.up.railway.app/api/users/'+loggUser.data._id;
+            let res=await fetch(uri,{headers: {
+                    Authorization: `Bearer ${loggUser.token}`,
+                }});
+            let user=await res.json(); 
+            user= user.data
             userUpdateForm.name.value=user.name;  
             userUpdateForm.email.value=user.email; 
         
-        } catch (error) { 
-            console.log(error);
+        } catch (error) {  
+             Toastify({
+                        text:`${error.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
         }
  
     }
@@ -31,20 +41,34 @@ let updateUser = async (e) => {
     let user= { 
         "name": userUpdateForm.name.value,
         "email":userUpdateForm.email.value,  
-        "password": loggUser[0].password,
-        "role": loggUser[0].role,
-        "date": loggUser[0].date,
-        "id": 2
     }
-     try {
-        await fetch('https://my-backend-y2ud.onrender.com/users/'+loggUser[0].id, {
+     try { 
+        await fetch(`https://mybrandbackend.up.railway.app/api/users/update/${loggUser.data._id}`, {
             method: 'PUT',
-            body: JSON.stringify(user),
-            headers: { 'Content-Type': 'application/json'}
+            data:user,
+            headers: {  Authorization: `Bearer ${loggUser.token}`}
         }); 
-        window.location.replace("./settings.html");
+        Toastify({
+                text:`Changes have been saved`,
+                duration: 3000,  
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover 
+                onClick: function(){} // Callback after click
+                }).showToast(); 
+        // window.location.replace("./settings.html");
       } catch (error) { 
-        console.log(error);
+         Toastify({
+                text:`${error.message}`,
+                duration: 3000,  
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                className:"dangerous", // 
+                onClick: function(){} // Callback after click
+                }).showToast(); 
     }    
 }
 userUpdateForm.addEventListener('submit', updateUser); 

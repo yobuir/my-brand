@@ -31,7 +31,7 @@ const createUser =   (e) => {
 									sessionStorage.setItem("loggedUser",JSON.stringify({data:response.data.data,token:response.data.token}));
 									console.log(response.data);
 							errMessage="";
-							// window.location.replace('blog.html');
+							window.location.replace('blog.html');
 							})
 							.catch(function (error) {
   
