@@ -86,7 +86,7 @@ let UpdatePost = async (e) => {
                         }).showToast();   
                 });
   
-        window.location.replace("/blog.html");
+        // window.location.replace("/blog.html");
       } catch (error) { 
         console.log(error);
     }

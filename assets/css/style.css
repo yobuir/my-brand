@@ -1304,3 +1304,22 @@ border-radius: 50%;
 .dangerous {
      background-color: red;
  }
+
+
+ .creator{
+    padding: 10px;
+ }
+
+ .creator p,h4 {
+    margin: 0;
+    padding: 0;
+ }
+
+ .creator {
+    min-width: 300px;
+    max-width: 300px;
+ }
+  .creator img {
+    width: 100%;
+    height: 100%;
+  }
