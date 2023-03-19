@@ -11,7 +11,7 @@ let logginError= 0;
 let logginContainer = document.getElementById('logginContainer');
  const postId= new URLSearchParams(window.location.search).get("id"); 
 const baseUr= 'https://mybrandbackend.up.railway.app/api';
- console.log(loggUser.data);
+ 
 const renderingSinglePost = async () => {
 try {
      
@@ -81,15 +81,13 @@ renderingSinglePost();
 
 let likePost= async (identifier) => {
     try {
-        let urlLikes= "https://mybrandbackend.up.railway.app/api/likes/all";
+        let urlLikes= `${baseUr}/likes/all`;
         const postLike=await fetch(urlLikes);
         let likes=await  postLike.json();
-        likes = likes.data 
-        console.log(likes);
-
+        likes = likes.data  
     if (loggUser != null) { 
        const checkLikes= likes.filter(like => like.user_id === loggUser.data._id && like.post_id === postId );
-       console.log(checkLikes);
+       
        if(checkLikes.length ==0){
          
             let like = {
@@ -133,26 +131,9 @@ let likePost= async (identifier) => {
                 
 
         
-            }else{ 
-
-                  let like = {
-                    liked:0,
-                    post_id:postId,
-                    user_id:loggUser.data._id
-                
-                }
-            axios({
-                url:`${baseUr}/likes/update/${checkLikes[0].id}`,
-                data:like,
-                method:'PUT',
-                headers: {
-                    Authorization: `Bearer ${Authuser.token}`,
-                }}
-              )
-            .then(function (response) { 
-                console.log(response);
-                    Toastify({
-                        text:`${response.data.message}`,
+            }else{  
+                Toastify({
+                        text:`blog liked`,
                         duration: 3000,  
                         close: true,
                         gravity: "top", // `top` or `bottom`
@@ -160,36 +141,35 @@ let likePost= async (identifier) => {
                         stopOnFocus: true, // Prevents dismissing of toast on hover
                         className:"dangerous", // 
                         onClick: function(){} // Callback after click
-                        }).showToast();   
-                })
-                .catch(function (error) { 
-                     console.log(error);
-                     Toastify({
-                        text:`${error.response.data.message}`,
-                        duration: 3000,  
-                        close: true,
-                        gravity: "top", // `top` or `bottom`
-                        position: "right", // `left`, `center` or `right`
-                        stopOnFocus: true, // Prevents dismissing of toast on hover
-                        className:"dangerous", // 
-                        onClick: function(){} // Callback after click
-                        }).showToast();  
-                });
+                        }).showToast(); 
             } 
         } else {
                 errorMessage="You need to be logged in";
-            } 
+                   Toastify({
+                        text:`${errorMessage}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
+            }
     
     } catch (error) {
       errorMessage=error;  
-      console.log(error);
-    }
-
-    // if (errorMessage){
-    //     window.location.replace('login.html');
-    // }
-    
- 
+    Toastify({
+        text:`${errorMessage}`,
+        duration: 3000,  
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        className:"dangerous", // 
+        onClick: function(){} // Callback after click
+        }).showToast(); 
+    } 
 }
 
 // likePost();
