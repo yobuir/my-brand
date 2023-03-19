@@ -386,6 +386,7 @@ main{
 }
 .profile_image{
     margin-top: 10px;
+    padding: 10px;
     text-align: center;
     align-self: center; 
 }
@@ -1299,3 +1300,7 @@ border-radius: 50%;
 .error{
     color:red;
 }
+
+.dangerous {
+     background-color: red;
+ }

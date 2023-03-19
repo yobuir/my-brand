@@ -14,9 +14,9 @@ function ShowDropDown (){
 function userIsAdmin (){
       let user =  sessionStorage.getItem("loggedUser");
      let loggUser =JSON.parse(user);
-     if(loggUser.role !== 'admin'){
+     if(loggUser.data.role !== 'admin'){
           console.log(loggUser.role);
-         window.location.replace('blog.html');
+          window.location.replace('../../blog.html');
      }
 }
 
@@ -25,9 +25,9 @@ function userAuth( ) {
      let loggUser =JSON.parse(user);
      
      if (loggUser != null) {
-       name.innerHTML=loggUser.name;  
+       name.innerHTML=loggUser.data.name;  
      //     console.log(loggUser);
-         Wmessage.innerHTML=`<h3>Hi! ${loggUser.name} welcome back !</h3>`
+         Wmessage.innerHTML=`<h3>Hi! ${loggUser.data.name} welcome back !</h3>`
      }else{
           // loginScreen.display="block";
           profile.display="none";

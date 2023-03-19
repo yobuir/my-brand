@@ -13,7 +13,7 @@ const createUser = async (e) => {
         const email= Form.email.value;
         const password= Form.password.value; 
         const confirm_password= Form.cpassword.value; 
-        const role = 'user';
+        // const role = 'user';
 
         if (name ===  "" || email ===  "" || password ===  "") {
              errMessage="No valid data";
@@ -27,7 +27,7 @@ const createUser = async (e) => {
                   confirm_password:confirm_password,
                   role: "user"
             }   
-	            axios.post( `${baseUrl}/users/create`,{name,email,confirm_password,password,role})
+	            axios.post( `${baseUrl}/users/create`,{name,email,confirm_password,password})
                     .then(function (response) { 
                     Toastify({
                         text:`${response.data.message}`,
@@ -41,7 +41,7 @@ const createUser = async (e) => {
 		
 	                    window.location.replace('login.html');
                     }).catch (function (error) {
-		            console.log(error.response.data.message);  
+		            // console.log(error.response.data.message);  
                     Toastify({
                         text:`${error.response.data.message}`,
                         duration: 3000,  
@@ -54,17 +54,26 @@ const createUser = async (e) => {
                         }).showToast();
 		
 	                    });
-
-             success="User created now you can login"
+ 
             //   window.location.replace('login.html')
 
             }else{
                 errMessage="Password not match";
+                Toastify({
+                        text:`Password not match`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
             }
          } 
         
     } catch (error) {
-        console.log(error);
+        // console.log(error);
          Toastify({
                 text:`${error}`,
                 duration: 3000,  
