@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="style/dashboard.css">
     
 </head>
@@ -100,8 +100,9 @@
                             <form class="form" id="blogForm"> 
                                 <label>Title</label>
                                 <input type="text" id="blog_title" placeholder="title">
-                                <label>Date</label>
-                                <input type="date" id="blog_date" placeholder="blog_date">
+                                <label>Snippet</label>
+                                <input type="text" id="blog_snippet" placeholder="blog snippet">
+                                <input type="hidden" id="blog_identity">
                                 <label>Cover image</label>
                                 <input type="url" id="blog_image" placeholder="image url">
                                 <label>Description</label>
@@ -120,6 +121,8 @@
     <script src="js/dropdown.js"></script>
     <script src="js/blogList.js"></script> 
     <script src="js/delete.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

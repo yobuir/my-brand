@@ -12,7 +12,7 @@ function ShowDropDown (){
 }
 
 function userIsAdmin (){
-      let user =  sessionStorage.getItem("loggedUser");
+     let user =  sessionStorage.getItem("loggedUser");
      let loggUser =JSON.parse(user);
      if(loggUser.data.role !== 'admin'){
           console.log(loggUser.role);
