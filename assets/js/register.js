@@ -3,40 +3,91 @@ const Form=document.getElementById("Form");
 const error=document.getElementById("error");
 let errMessage=""; 
 let success=document.getElementById("success"); 
-
+const baseUrl= 'https://mybrandbackend.up.railway.app/api';
 const createUser = async (e) => {
     e.preventDefault();
 
-    const name= Form.name.value;
-    const email= Form.email.value;
-    const password= Form.password.value; 
-    const cpassword= Form.cpassword.value; 
+    try {
+
+        const name= Form.name.value;
+        const email= Form.email.value;
+        const password= Form.password.value; 
+        const confirm_password= Form.cpassword.value; 
+        // const role = 'user';
 
         if (name ===  "" || email ===  "" || password ===  "") {
              errMessage="No valid data";
         }else{ 
-            if (password == cpassword ) {
+            if (password == confirm_password ) {
 
             const user= {  
-                  "name": name,
-                  "email":email,
-                  "password": password,
-                  "role": "user",
-                  "date": Date()
-            }
-             await fetch('https://my-backend-y2ud.onrender.com/users', {
-                method: 'POST',
-                body: JSON.stringify(user),
-                headers: { 'Content-Type': 'application/json' }
-            }); 
-
-             success="User created now you can login"
-              window.location.replace('login.html')
+                  name: name,
+                  email:email,
+                  password: password,
+                  confirm_password:confirm_password,
+                  role: "user"
+            }   
+	            axios.post( `${baseUrl}/users/create`,{name,email,confirm_password,password})
+                    .then(function (response) { 
+                    Toastify({
+                        text:`${response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover 
+                        onClick: function(){} // Callback after click
+                        }).showToast();
+		
+	                    window.location.replace('login.html');
+                    }).catch (function (error) {
+		            // console.log(error.response.data.message);  
+                    Toastify({
+                        text:`${error.response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast();
+		
+	                    });
+ 
+            //   window.location.replace('login.html')
 
             }else{
                 errMessage="Password not match";
+                Toastify({
+                        text:`Password not match`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
             }
-         }       
+         } 
+        
+    } catch (error) {
+        // console.log(error);
+         Toastify({
+                text:`${error}`,
+                duration: 3000,  
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                className:"dangerous", // 
+                onClick: function(){} // Callback after click
+                }).showToast();
+		
+	                
+    }
+      
 error.innerHTML=errMessage;
 // success.innerHTML= success;
    

@@ -540,3 +540,7 @@ transition: 0.4s;
      border: 1px solid var(--blue);
 
  }
+
+ .dangerous { 
+    background-color: red;
+ }

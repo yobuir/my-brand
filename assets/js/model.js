@@ -9,31 +9,33 @@ let errorDiv=document.getElementById('errorDiv');
 let successDiv=document.getElementById('successDiv');
 modelBox.style.display="none";
 const userLg =  sessionStorage.getItem("loggedUser");
-const Authuser =JSON.parse(userLg);
-console.log(Authuser);
+const Authuser =JSON.parse(userLg); 
+const baseUrl= 'https://mybrandbackend.up.railway.app/api';
+
 let postIdentifier= new URLSearchParams(window.location.search).get("id");;
-
-
 
     const LoadComment = async(id) => {
       try {
-        let uri='https://my-backend-y2ud.onrender.com/comments?post_id='+id;
+        let uri=`${baseUrl}/comments/post/${id}`;
         let res=await fetch(uri);
-        let comments=await res.json();   
-        comments.forEach(comment => {
+        let comments=await res.json();  
+        comments = comments.data;
+
+
+    
+
+        comments.forEach(  (comment) => {
+               //finding user 
              contentCommentList+=` 
                   <div class="comment">
                         <div class="header">
-                            <div class="profile">
-                                <div class="image">
-                                    <img src="/assets/images/_22_wallpaper-for-computer_256226981.jpg">
-                                </div>
+                            <div class="profile"> 
                                 <div class="identity">
                                     <div class="name">
-                                        <span>You ir</span>
+                                        <span> [User]</span>
                                     </div>
                                     <div class="date">
-                                        <small>${comment.date}</small>
+                                        <small>${comment.createdAt}</small>
                                     </div>
                                 </div>
                             </div>
@@ -54,27 +56,62 @@ let postIdentifier= new URLSearchParams(window.location.search).get("id");;
         }  
     }
 
-LoadComment(postIdentifier);  
-
-
+LoadComment(postIdentifier);   
 const addComment= async() => {
-      try {
-         const commented={
-            comment:comment_form.comment.value,
-            post_id:postIdentifier, 
-            user_id:Authuser[0].id,
-            date:Date()
+      try { 
+        const comment=comment_form.comment.value;
+        const user_id = Authuser.data._id;
+        const data= {
+            user_id:user_id,post_id:postIdentifier,comment:comment
         }
-        await fetch('https://my-backend-y2ud.onrender.com/comments',{
+        // console.log(data);
+        axios({
+            url:`${baseUrl}/comments/create`,
+            data:data,
             method:'POST',
-            headers:{'content-type':'application/json'},
-            body:JSON.stringify(commented)
-
-        });
-        comment_form.comment.value="";
-        successDiv.innerHTML="Comment added successfully";
+            headers: {
+                Authorization: `Bearer ${Authuser.token}`,
+              }}
+              )
+            .then(function (response) { 
+                    Toastify({
+                        text:`${response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast();  
+                })
+                .catch(function (error) {
+                     Toastify({
+                        text:`${error.response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
+                    // console.log(error);
+                });
+        comment_form.comment.value=""; 
         
       } catch (error) {  
+        //   console.log(error);
+          Toastify({
+                        text:`Comment not added`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
             errorDiv.innerHTML="Comment not added ";
         }  
    

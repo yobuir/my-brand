@@ -11,14 +11,23 @@ function ShowDropDown (){
     
 }
 
+function userIsAdmin (){
+     let user =  sessionStorage.getItem("loggedUser");
+     let loggUser =JSON.parse(user);
+     if(loggUser.data.role !== 'admin'){
+          console.log(loggUser.role);
+          window.location.replace('../../blog.html');
+     }
+}
+
 function userAuth( ) { 
      let user =  sessionStorage.getItem("loggedUser");
      let loggUser =JSON.parse(user);
      
      if (loggUser != null) {
-       name.innerHTML=loggUser[0].name;  
-         console.log(loggUser);
-         Wmessage.innerHTML=`<h3>Hi! ${loggUser[0].name} welcome back !</h3>`
+       name.innerHTML=loggUser.data.name;  
+     //     console.log(loggUser);
+         Wmessage.innerHTML=`<h3>Hi! ${loggUser.data.name} welcome back !</h3>`
      }else{
           // loginScreen.display="block";
           profile.display="none";
@@ -34,3 +43,4 @@ const logout = () => {
 }
  
 
+userIsAdmin();

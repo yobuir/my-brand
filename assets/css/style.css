@@ -386,6 +386,7 @@ main{
 }
 .profile_image{
     margin-top: 10px;
+    padding: 10px;
     text-align: center;
     align-self: center; 
 }
@@ -1294,3 +1295,12 @@ border-radius: 50%;
 .model-box .model-footer .comment .body p{
     color: var(--dark-gray);
 }
+
+
+.error{
+    color:red;
+}
+
+.dangerous {
+     background-color: red;
+ }

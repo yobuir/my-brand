@@ -1,17 +1,21 @@
 const blogcontainer=document.getElementById("blogcontainer");
 
+const baseUrl= 'https://mybrandbackend.up.railway.app/api';
+
 
 // view list of posts
 
 const renderPosts= async () => {
-    let uri='https://my-backend-y2ud.onrender.com/posts';
-    const res=await fetch(uri);
-    const posts=await res.json();
-    // console.log(posts);
 
-    let content= '';
-    posts.forEach(post => {
-        content+=`
+    try {
+        let uri=`${baseUrl}/posts/all`;
+        const res=await fetch(uri);
+        let posts=await res.json();
+        posts=posts.data; 
+
+        let content= '';
+        posts.forEach(post => {
+            content+=`
         
           <div class="card">
             <a href="viewmore.html?id=${post.id}">
@@ -24,7 +28,7 @@ const renderPosts= async () => {
                 <h4>${post.title}</h4>
             </div>
             <div class="card-footer">
-                <div id="comment_button" onclick="openModel(${post.id})">
+                <div id="comment_button" onclick="openModel('${post._id}')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
                     viewBox="0 0 16 16">
                     <path
@@ -33,7 +37,7 @@ const renderPosts= async () => {
                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                 </svg>
             </div>
-                <div style="color:red" onclick="DeleteBlog(${post.id})">
+                <div style="color:red" onclick="DeleteBlog('${post._id}')">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
                     viewBox="0 0 16 16">
                     <path
@@ -45,7 +49,21 @@ const renderPosts= async () => {
         `       
     });
 
-        blogcontainer.innerHTML=content;
+    blogcontainer.innerHTML=content; 
+    } catch (error) {
+        console.log(error);
+         Toastify({
+                        text:`${error}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
+    }
+  
 }
 
 renderPosts();

@@ -1,13 +1,20 @@
 
 const commentContainer=document.getElementById('commentContainer');
 let content= '';
+let user =  sessionStorage.getItem("loggedUser");
+let Authuser =JSON.parse(user); 
 
 const LoadComments=async () => {
     try {
 
-        let data=await fetch ('https://my-backend-y2ud.onrender.com/contacts');
-        response=await data.json(data);
-        response.forEach(contact => {
+        let uri='https://mybrandbackend.up.railway.app/api/contacts/all';
+        let res=await fetch(uri, {headers: {
+                    Authorization: `Bearer ${Authuser.token}`,
+                }});
+        let response=await res.json(res);  
+      
+        response=response.data;
+         response.forEach(contact => {
          
             content+=`
                     <div class="card">
@@ -21,12 +28,12 @@ const LoadComments=async () => {
                             <p>${contact.message}</p>
                         </div>
                         <div class="card-footer">
-                            <div class="delete" style='cursor:pointer' onclick="deleteComment(${contact.id})">
+                            <div class="delete" style='cursor:pointer' onclick="deleteComment('${contact._id}')">
                                 Delete
                             </div>
             
                             <div>
-                                <small>${contact.date}</small>
+                                <small>${contact.createdAt}</small>
                             </div>
                         </div>
                     </div>
@@ -35,7 +42,16 @@ const LoadComments=async () => {
      
         
     } catch (error) {
-        
+         Toastify({
+                text:`${error}`,
+                duration: 3000,  
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                className:"dangerous", // 
+                onClick: function(){} // Callback after click
+                }).showToast();    
     }
 
 commentContainer.innerHTML=content;
@@ -47,8 +63,38 @@ LoadComments()
 
 
 const deleteComment = async (id) =>{
- let data=await fetch (`https://my-backend-y2ud.onrender.com/contacts/${id}`,{
-    method: 'DELETE',
- }); 
-    window.location.replace('./comments.html');
+    let uri = `https://mybrandbackend.up.railway.app/api/comments/${id}`
+    axios({
+        url:uri, 
+        method:'DELETE',
+        headers: {
+            Authorization: `Bearer ${Authuser.token}`,
+        }}
+        ).then(function (response) { 
+                console.log(response);
+                    Toastify({
+                        text:`${response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast();  
+                        window.location.replace="../blog.html"
+                })
+                .catch(function (error) { 
+                    // console.log(error);
+                     Toastify({
+                        text:`${error.response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast();  
+                });
 }

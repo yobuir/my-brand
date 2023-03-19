@@ -1,5 +1,3 @@
-
-
 // view single post 
 const blogOpen=document.getElementById("blogOpen");
 var identifier;
@@ -9,30 +7,37 @@ let loggUser =JSON.parse(user);
 let errorMessage;
 let likedByLogged='';
 let errorBox=document.getElementById('errorBox');
-
-const renderingSinglePost = async () => {
-
-try {
-    
-    const postId= new URLSearchParams(window.location.search).get("id");
-
-    let uri='https://my-backend-y2ud.onrender.com/posts/'+postId;
-    const res=await fetch(uri);
-    const post=await res.json();
+let logginError= 0;
+let logginContainer = document.getElementById('logginContainer');
+ const postId= new URLSearchParams(window.location.search).get("id"); 
+const baseUr= 'https://mybrandbackend.up.railway.app/api';
  
-    let urlLikes= "https://my-backend-y2ud.onrender.com/likes?post_id="+postId;
-    const postLike=await fetch(urlLikes);
-    const likes=await  postLike.json();
+const renderingSinglePost = async () => {
+try {
+     
+    let uri=`${baseUr}/posts/${postId}`;
+    const res=await fetch(uri);
+    const postResponse=await res.json();
+    const post=postResponse.data;
 
-    let uriComment='https://my-backend-y2ud.onrender.com/comments?post_id='+postId;
+    let urlLikes= `${baseUr}/likes/${postId}`;
+    const postLike=await fetch(urlLikes);
+    let likes=await  postLike.json();
+     likes= likes.data;
+    
+
+    let uriComment=`${baseUr}/comments/post/${postId}`;
     let resComment=await fetch(uriComment);
     let comments=await resComment.json();
+      comments=comments.data; 
+
+    
  
     if (res.status == 404){
          content=`<div><h1>Not Found</h1></div>`;
     }else{  
          if (loggUser != null) { 
-             likedByLogged=likes.filter(like => like.user_id === loggUser[0].id);
+             likedByLogged=likes.filter(like => like.user_id ===loggUser.data._id);
             //  console.log(likedByLogged);
          } else{
             // console.log("User")
@@ -42,7 +47,7 @@ try {
                 <div class="img-cover" style="background-image:url('${post.image}')">
             
                 </div> 
-                <p>${post.date}</p>
+                <p>${post.createdAt}</p>
                 <h1>${post.title}</h1>
             </div>
             <div class="contact-container">
@@ -76,50 +81,95 @@ renderingSinglePost();
 
 let likePost= async (identifier) => {
     try {
-        let urlLikes= "https://my-backend-y2ud.onrender.com/likes/";
+        let urlLikes= `${baseUr}/likes/all`;
         const postLike=await fetch(urlLikes);
-        const likes=await  postLike.json();
+        let likes=await  postLike.json();
+        likes = likes.data  
     if (loggUser != null) { 
-       const checkLikes= likes.filter(like => like.user_id === loggUser[0].id && like.post_id === identifier );
+       const checkLikes= likes.filter(like => like.user_id === loggUser.data._id && like.post_id === postId );
+       
        if(checkLikes.length ==0){
          
             let like = {
                     liked:1,
-                    post_id:identifier,
-                    user_id:loggUser[0].id,
-                    date:Date()
+                    post_id:postId,
+                    user_id:loggUser.data._id
                 
-                }
-            
-                    const url="https://my-backend-y2ud.onrender.com/likes";
-                    await fetch(url, {
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify(like),
-                        method: 'POST'
-
-                    });
+                }   
+            axios({
+                url:`${baseUr}/likes/create`,
+                data:like,
+                method:'POST',
+                headers: {
+                    Authorization: `Bearer ${Authuser.token}`,
+                }}
+              )
+            .then(function (response) { 
+                    Toastify({
+                        text:`${response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast();   
+                })
+                .catch(function (error) { 
+                     Toastify({
+                        text:`${error.response.data.message}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast();  
+                });
+                
 
         
             }else{  
-                const url="https://my-backend-y2ud.onrender.com/likes/"+checkLikes[0].id;
-                    await fetch(url, { 
-                        method: 'DELETE'
-
-                    });
+                Toastify({
+                        text:`blog liked`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
             } 
         } else {
                 errorMessage="You need to be logged in";
-            } 
+                   Toastify({
+                        text:`${errorMessage}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
+            }
     
     } catch (error) {
       errorMessage=error;  
-    }
-
-    if (errorMessage){
-      window.alert(errorMessage);  
-    }
-    
- 
+    Toastify({
+        text:`${errorMessage}`,
+        duration: 3000,  
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        className:"dangerous", // 
+        onClick: function(){} // Callback after click
+        }).showToast(); 
+    } 
 }
 
 // likePost();
