@@ -31,14 +31,32 @@
                             body:JSON.stringify(messageContent)
 
                         });                        
-                         
-                            document.getElementById("success").innerHTML=` Your response have been saved,  `+name;
+                          
                             document.getElementById("name").value=""; 
                             document.getElementById("email").value="";
                             document.getElementById("message").value=""; 
+                            Toastify({
+                                text:`Your response have been saved`,
+                                duration: 3000,  
+                                close: true,
+                                gravity: "top", // `top` or `bottom`
+                                position: "right", // `left`, `center` or `right`
+                                stopOnFocus: true, // Prevents dismissing of toast on hover  
+                                onClick: function(){} // Callback after click
+                                }).showToast(); 
                         
                     } catch (error) {
                         document.getElementById("error").innerHTML='FAILED...', error;
+                        Toastify({
+                        text:`${error}`,
+                        duration: 3000,  
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className:"dangerous", // 
+                        onClick: function(){} // Callback after click
+                        }).showToast(); 
                     }                
         
             }
